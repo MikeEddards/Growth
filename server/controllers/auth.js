@@ -78,8 +78,25 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy()
         res.sendStatus(200)
+    },
+    updateUser: async(req, res) => {
+        const {email, first_name, last_name, image} = req.body
+        const {session} = req
+        const db = req.app.get('db')
+        if(session.user){
+            const userInfo = await db.update_user({
+                id: session.user.id,
+                email,
+                first_name,
+                last_name,
+                image
+            })
+            return res.status(200).send(userInfo)
+        }else{
+            return res.status(401).send('Please Log In')
+        }
     }
-
+  
 
 
 

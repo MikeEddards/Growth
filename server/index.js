@@ -35,11 +35,17 @@ app.post('/auth/login', auth.login)
 app.get('/auth/userinfo', auth.getUserInfo)
 app.get('/auth/user', auth.sessionUser)
 app.get('/auth/logout', auth.logout)
+app.put('/auth/updateuser', auth.updateUser)
 
 app.post('/api/addchild', children_ctrl.addChild)
 app.post('/api/adddata', children_ctrl.addChildData)
 app.get('/api/getchildren', children_ctrl.getChildren)
 app.get('/api/childdata/:id', children_ctrl.getChildData)
 app.get('/api/alldata', children_ctrl.getAllchildrenData)
+app.delete('/api/deletechild/:id', children_ctrl.deleteChild)
+app.put('/api/updatename/:id', children_ctrl.updateChildName)
+app.put('/api/updatedata', children_ctrl.updateDataSet)
+
+
 
 app.listen(SERVER_PORT, () => console.log(`All ears on port: ${SERVER_PORT}`))

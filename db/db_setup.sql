@@ -17,6 +17,7 @@ CREATE TABLE "child" (
 );
 
 CREATE TABLE "age_data" (
+  "data_id" serial,
   "parent_id" integer,
   "child_id" integer,
   "age" decimal,
