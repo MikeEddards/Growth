@@ -1,0 +1,1 @@
+SELECT * from child where parent_id = ${parent_id};
