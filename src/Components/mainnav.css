@@ -1,0 +1,49 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12vh;
+    background: #20A4F3;
+    border-bottom: 1px solid #304246;
+    
+}
+.logoContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50vw;
+}
+.logo{
+    height: 8vh;
+    margin-left: 100px;
+    padding: 5px;
+    background: #F9FAFB;
+    border-radius: 10px;
+    border: 1px solid #304246;
+}
+.links{
+    list-style: none;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    
+ 
+}
+.list{
+    margin: 0 40px;
+    font-family: 'Mada', sans-serif;
+    background: #59F8E8;
+    padding: 5px 15px;
+    border: 1px solid #304246;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #304246;
+}
+.title{
+    font-family: 'Kalam', cursive;
+    color: #304246;
+    font-size: 2.5em;
+    font-style: italic;
+
+}

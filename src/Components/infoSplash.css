@@ -1,0 +1,10 @@
+.infoContainer{
+   
+    height: 60vh;
+    width: 50vw;
+    background: #F9FAFB;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+     margin-top: 1em;
+        
+}
