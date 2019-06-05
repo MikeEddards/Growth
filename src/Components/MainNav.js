@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import './mainnav.css'
 import {Link} from 'react-router-dom'
 import sapling from '../Image/sapling.png'
-export default class MainNav extends Component {
-    render() {
+import {connect} from 'react-redux'
+
+ class MainNav extends Component {
+     render() {
+
         return (
             <div>
                 <nav>
@@ -17,8 +20,12 @@ export default class MainNav extends Component {
                     </div>
                     
                         <ul className='links'>
-                            <Link to="/" className='list'>Home</Link>
-                            <li className='list'>Register</li>
+                            {this.props.id ? <Link className='list' to='/dashboard'>Dashboard</Link> : <Link className='list' to='/'>Home</Link>}
+                           
+
+                            {this.props.id ? <Link className='list'>Log Out</Link> :
+                            <Link to='/register' className='list'>Register</Link>}
+
                             <li className='list'>About</li>
                         </ul>
 
@@ -28,3 +35,8 @@ export default class MainNav extends Component {
         )
     }
 }
+function mapStateToProps(state){
+    return state
+}
+
+export default connect(mapStateToProps)(MainNav)

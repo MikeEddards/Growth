@@ -17,7 +17,7 @@ module.exports = {
             first_name,
             last_name
         })
-        session.user = {id: createdUser[0].login_id, username: createdUser[0].username}
+        session.user = {id: createdUser[0].id, username: createdUser[0].username}
         res.status(200).send(session.user)
     },
     login: async (req,res) => {

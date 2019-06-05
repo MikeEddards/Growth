@@ -1,0 +1,34 @@
+.userContainer{
+    height: 60vh;
+    width: 30vw;
+    background: #F9FAFB;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+     margin-top: 1em;
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     flex-direction: column;
+}
+.profilePic{
+    max-width:30vw;
+    height: 30vh;
+    border: 1px solid #304246;
+}
+.name{
+
+    font-family: 'Mada', sans-serif;
+    color: #304246;
+    border-bottom: 1px solid #304246;
+}
+.button{
+
+    font-family: 'Mada', sans-serif;
+    background: #B15967;
+    padding: 5px 15px;
+    border: 1px solid #304246;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #F9FAFB;
+    cursor: pointer;
+}

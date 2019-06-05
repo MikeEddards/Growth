@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './login.css'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import InfoSplash from './InfoSplash'
 
@@ -18,10 +19,10 @@ class Login extends Component {
     }
     userLogin = (e) => {
         e.preventDefault()
-        
+        console.log(this.props)
         const {username, password} = this.state
         axios.post('/auth/login', {username, password})
-        .then(res => this.props.history.push('./dashboard'))
+        .then(res => this.props.history.push('/dashboard'))
         .catch((err) => {console.log(err)
         alert('Incorect Username or Password')})
         e.target.username = ''
@@ -52,7 +53,7 @@ class Login extends Component {
                     onChange={this.handleChange}
                     />
                     <button className='button'>Log In</button>
-                    <button className='button'>Register</button>
+                    <Link to='/register' className='button'>Register</Link>
                 </form>
             </div>
             <div>
