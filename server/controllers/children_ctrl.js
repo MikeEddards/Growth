@@ -82,7 +82,7 @@ module.exports = {
         }
     },
     updateChildName: async (req, res) => {
-        const {first_name, last_name} = req.body
+        const {first_name, last_name, image} = req.body
         const childId = +req.params.id 
         const {session} = req
         const db = req.app.get('db')
@@ -92,7 +92,8 @@ module.exports = {
             parent_id: session.user.id,
             child_id: childId,
             first_name, 
-            last_name
+            last_name,
+            image
         })
             res.status(200).send(childData)
         }else {
