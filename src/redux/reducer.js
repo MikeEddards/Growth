@@ -9,6 +9,7 @@ const initialState = {
 }
 const UPDATE_USER = 'UPDATE_USER'
 const GET_CHILDREN = 'GET_CHILDREN'
+const CLEAR_STORE = 'CLEAR_STORE'
 
 export function updateUser(user){
     return {
@@ -22,6 +23,11 @@ export function getChildren(children){
         payload: children
     }
 }
+export function clearStore(){
+    return {
+        type: CLEAR_STORE
+    }
+}
 
 function reducer (state = initialState, action){
     switch (action.type){
@@ -32,7 +38,12 @@ function reducer (state = initialState, action){
            return {
                ...state,
                children: action.payload
-           }    
+           }
+        case CLEAR_STORE:
+            console.log('bam')
+            return{
+                ...initialState
+            }       
         default:
             return state    
     }

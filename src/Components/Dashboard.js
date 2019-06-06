@@ -3,11 +3,14 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import { updateUser} from '../redux/reducer'
 import ChildList from './ChildList'
+import {Link} from 'react-router-dom'
 import './dashBoard.css'
 
 
 
 class  Dashboard extends Component  {
+    
+
     componentDidMount(){
         axios.get('/auth/userinfo')
         .then(res => {
@@ -28,7 +31,7 @@ class  Dashboard extends Component  {
                 <h2 className='name'>{first_name} {last_name}</h2>
                 <button className='button'>Add Child</button>
                 <button className='button'>View Charts</button>
-                <button className='button'>Edit Profile</button>
+                <Link to='/profileedit' className='button'>Edit Profile</Link>
             </div>
             <ChildList />
         </div>

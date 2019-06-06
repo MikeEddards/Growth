@@ -5,6 +5,7 @@ import Dashboard from './Components/Dashboard'
 import Register from './Components/Register'
 import ChildEdit from './Components/ChildEdit'
 import DataAdder from './Components/DataAdder';
+import ProfileEdit from './Components/ProfileEdit';
 export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
@@ -12,5 +13,6 @@ export default (
         <Route path='/register' component={Register} />
         <Route path='/childedit/:id' component={ChildEdit} />
         <Route path='/childdata/:id' component={DataAdder} />
+        <Route path='/profileedit' component={ProfileEdit} />
     </Switch>
 )

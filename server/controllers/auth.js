@@ -81,17 +81,20 @@ module.exports = {
         res.sendStatus(200)
     },
     updateUser: async(req, res) => {
+        console.log(req.body)
         const {email, first_name, last_name, image} = req.body
         const {session} = req
         const db = req.app.get('db')
+        console.log(session.user.first_name)
         if(session.user){
             const userInfo = await db.update_user({
                 id: session.user.id,
-                email,
-                first_name,
-                last_name,
-                image
+                email: email || session.user.email,
+                first_name: first_name || session.user.first_name,
+                last_name: last_name || session.user.last_name,
+                image: image || session.user.image
             })
+            console.log(userInfo)
             return res.status(200).send(userInfo)
         }else{
             return res.status(401).send('Please Log In')
