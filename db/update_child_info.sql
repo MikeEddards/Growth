@@ -6,3 +6,6 @@ where parent_id = ${parent_id} and child_id = ${child_id};
 
 UPDATE child set image = ${image}
 where parent_id = ${parent_id} and child_id = ${child_id};
+
+UPDATE child set color = ${color}
+where parent_id = ${parent_id} and child_id = ${child_id};

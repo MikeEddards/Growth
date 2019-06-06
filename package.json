@@ -3,20 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aws-sdk": "^2.469.0",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^2.8.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
+    "hex-rgb": "^4.1.0",
     "massive": "^5.10.0",
+    "randomstring": "^1.1.5",
+    "rc-color-picker": "^1.2.6",
     "react": "^16.8.6",
-    "react-color": "^2.17.3",
     "react-dom": "^16.8.6",
+    "react-dropzone": "^10.1.5",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.1"
+    "react-spinners": "^0.5.4",
+    "redux": "^4.0.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

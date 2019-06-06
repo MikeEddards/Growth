@@ -14,6 +14,22 @@ module.exports = {
         res.status(200).send(createChild)
 
     },
+    getChildInfo: async (req, res) => {
+        const db = req.app.get('db')
+        const {session} = req
+     
+        const childId = +req.params.id
+      
+        if(session.user){
+            const data = await db.get_child_info({
+                child_id: childId,
+                parent_id: session.user.id
+            })
+            return res.status(200).send(data[0])
+        }else{
+            return res.status(401).send('Please Log Back In')
+        }
+    },
     addChildData: async (req, res) => {
         const {child_id, age, height, weight, head_size, image} = req.body
         const {session} = req
@@ -28,6 +44,7 @@ module.exports = {
             head_size, 
             image
         })
+        console.log(childData)
         res.status(200).send(childData)
     },
     getChildren: async (req, res) => {
@@ -43,6 +60,7 @@ module.exports = {
         }
     },
     getChildData: async (req, res) => {
+      
         const db = req.app.get('db')
         const {session} = req
         const childId = +req.params.id
@@ -51,7 +69,8 @@ module.exports = {
                 child_id: childId,
                 parent_id: session.user.id
             })
-            return res.status(200).send(data[0])
+            
+            return res.status(200).send(data)
         }else{
             return res.status(401).send('Please Log Back In')
         }
@@ -82,7 +101,7 @@ module.exports = {
         }
     },
     updateChildName: async (req, res) => {
-        const {first_name, last_name, image} = req.body
+        const {first_name, last_name, image, chart_color} = req.body
         const childId = +req.params.id 
         const {session} = req
         const db = req.app.get('db')
@@ -93,8 +112,10 @@ module.exports = {
             child_id: childId,
             first_name, 
             last_name,
-            image
+            image,
+            color: chart_color
         })
+        console.log(childData)
             res.status(200).send(childData)
         }else {
             return res.status(401).send('Please Log Back In')

@@ -13,7 +13,7 @@ class  Dashboard extends Component  {
         .then(res => {
             this.props.updateUser(res.data)    
         })
-        .catch(err => console.log(err) )
+        .catch(err => this.props.history.push('/') )
     }
 
 
@@ -22,7 +22,7 @@ class  Dashboard extends Component  {
     const {id, username, email, first_name, last_name, image} = this.props
 
     return (
-        <div className='main'>
+        <div className='maindash'>
             <div className='userContainer'>
                 <img className='profilePic' src={image ? image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'} alt="" />
                 <h2 className='name'>{first_name} {last_name}</h2>

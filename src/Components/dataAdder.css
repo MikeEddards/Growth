@@ -1,0 +1,69 @@
+.dataContainer{
+  
+    height: 60vh;
+    width: 50vw;
+    background: #F9FAFB;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+     margin-top: 1em;
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+     flex-direction: column;
+     overflow-y: auto;   
+}
+.dataContainer::-webkit-scrollbar{
+    width: 6px;
+    background-color: #F9FAFB;
+}
+.dataContainer::-webkit-scrollbar-thumb{
+    background: #304246;
+}
+
+.data{
+    border: 1px solid #304246;
+    width:  46vw;
+    height: 18vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Mada', sans-serif;
+    color: #304246;
+    margin-top: 1vh;
+}
+.dataSet{
+   
+    width:  43vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Mada', sans-serif;
+    color: #304246; 
+    margin-bottom: 3vh;
+    
+}
+.dataPic{
+    border: 1px solid #304246;
+    max-height: 14vh;
+    margin-top: 1vh;
+
+}
+
+.addedImage{
+    border: 1px solid #304246;
+    max-height: 8vh;
+}
+.h3{
+    width: 15%;
+}
+.displayData{
+    width:  47vw;
+    height: 55vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Mada', sans-serif;
+    color: #304246; 
+    flex-direction: column;
+}

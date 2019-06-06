@@ -1,0 +1,45 @@
+.colorDisplay{
+
+    font-family: 'Mada', sans-serif;
+    padding: 5px 15px;
+    border: 1px solid #304246;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #304246;
+
+}
+.childbox{
+    height: 60vh;
+    width: 51vw;
+    background: #F9FAFB;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+     margin-top: 1em;
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     flex-direction: column;
+     overflow-y: auto;
+     
+}
+.childbox::-webkit-scrollbar{
+    width: 6px;
+    background-color: #F9FAFB;
+}
+.childbox::-webkit-scrollbar-thumb{
+    background: #304246;
+}
+.kid{
+    
+    border: 1px solid #304246;
+    width:  49vw;
+    height: 15vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.childPic{
+    border: 1px solid #304246;
+    max-height: 14vh;
+}
