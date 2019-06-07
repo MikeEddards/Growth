@@ -4,7 +4,7 @@ module.exports = {
         const {sex, first_name, last_name} = req.body
         const db = req.app.get('db')
         const {session} = req
-    
+        console.log(req.body)
         const createChild = await db.add_child({
             parent_id: session.user.id,
             sex,
@@ -44,7 +44,7 @@ module.exports = {
             head_size, 
             image
         })
-        console.log(childData)
+
         res.status(200).send(childData)
     },
     getChildren: async (req, res) => {
@@ -115,7 +115,7 @@ module.exports = {
             image,
             color: chart_color
         })
-        console.log(childData)
+
             res.status(200).send(childData)
         }else {
             return res.status(401).send('Please Log Back In')

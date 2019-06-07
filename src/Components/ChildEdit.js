@@ -45,7 +45,7 @@ class ChildEdit extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.props)
+ 
         const {first_name, last_name, chart_color, image } = this.state
         axios.put(`/api/updateinfo/${this.state.child_id}`, {first_name, last_name, chart_color, image })
         .then(res => this.props.history.push('/dashboard'))
@@ -75,7 +75,7 @@ getSignedRequest = ([file]) => {
     this.setState({isUploading: true})
     
     const fileName = `${randomstring.generate()}-${file.name.replace(/\s/g, '-')}`
-    console.log(fileName)
+ 
     axios.get('/sign-s3', {
         params: {
         'file-name': fileName,
@@ -83,7 +83,7 @@ getSignedRequest = ([file]) => {
         }
     }).then( (res) => {
         const { signedRequest, url } = res.data 
-        console.log(res.data)
+        
         this.uploadFile(file, signedRequest, url)
     }).catch( err => {
         console.log(err)
@@ -105,6 +105,10 @@ getSignedRequest = ([file]) => {
            
         })
     }
+    handleDelete = () => {
+     axios.delete(`/api/deletechild/${this.props.match.params.id}`)
+     .then(res => console.log(res.status))  
+    }
 
 
 
@@ -113,7 +117,7 @@ getSignedRequest = ([file]) => {
 
 
     render() {
-        console.log(this.state)
+
         return (
           <div className='box' >  
             <div className='container'>
@@ -161,6 +165,8 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
             </div>
                     <Link to='/dashboard' className='button' onClick={this.handleSubmit}>Submit</Link>
                     <Link to='/dashboard' className='button' onClick={this.handleSubmit}>Cancel</Link>
+                    <Link to='/dashboard' className='button' onClick={this.handleDelete}>Delete</Link>
+
                 </form>
 
             </div>

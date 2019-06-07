@@ -29,7 +29,7 @@ class  Dashboard extends Component  {
             <div className='userContainer'>
                 <img className='profilePic' src={image ? image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'} alt="" />
                 <h2 className='name'>{first_name} {last_name}</h2>
-                <button className='button'>Add Child</button>
+                <Link to='/addchild' className='button'>Add Child</Link>
                 <button className='button'>View Charts</button>
                 <Link to='/profileedit' className='button'>Edit Profile</Link>
             </div>

@@ -21,7 +21,6 @@ module.exports = {
         res.status(200).send(session.user)
     },
     login: async (req,res) => {
-        console.log(req.body)
         const db = req.app.get('db')
         const {username} = req.body
         const {session} = req
@@ -81,7 +80,7 @@ module.exports = {
         res.sendStatus(200)
     },
     updateUser: async(req, res) => {
-        console.log(req.body)
+
         const {email, first_name, last_name, image} = req.body
         const {session} = req
         const db = req.app.get('db')
@@ -94,7 +93,6 @@ module.exports = {
                 last_name: last_name || session.user.last_name,
                 image: image || session.user.image
             })
-            console.log(userInfo)
             return res.status(200).send(userInfo)
         }else{
             return res.status(401).send('Please Log In')

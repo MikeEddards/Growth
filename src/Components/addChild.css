@@ -1,0 +1,52 @@
+.switch{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Mada', sans-serif;
+    border: 1px solid #304246;
+}
+.default{
+    text-align: center;
+    padding: 5px 10px;
+    width: 5vw;
+    background: #20A4F3;
+    cursor: pointer;
+    border: 1px solid #304246;
+    color: #304246;
+    animation: 1s linear 0s 1 alternate selected;
+    transition: .1s ease-in 0s 1 unselected;
+}
+.notdefault{
+    text-align: center;
+    background: #B15967;
+    padding: 5px 10px;
+    width: 5vw;
+    cursor: pointer;
+    border: 1px solid #304246;
+    color: #F9FAFB;
+    transition: 50ms ease-in 0s 1 selected;
+    transition: 50ms ease-in 0s 1 unselected;
+}
+ @keyframes selected {
+     from {
+         background: #B15967;
+         color: #F9FAFB;
+         
+     }
+     to {
+         background: #20A4F3;
+         color: #F9FAFB;
+     }
+ }
+ @keyframes unselected {
+    from {
+        background: #20A4F3;
+        color: #304246;
+        
+    }
+    to {
+        background: #B15967;
+        color: #304246;
+    }
+}
