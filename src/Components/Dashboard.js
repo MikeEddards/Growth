@@ -22,7 +22,7 @@ class  Dashboard extends Component  {
 
    render(){
     
-    const {id, username, email, first_name, last_name, image} = this.props
+    const {first_name, last_name, image} = this.props
 
     return (
         <div className='maindash'>
@@ -30,7 +30,7 @@ class  Dashboard extends Component  {
                 <img className='profilePic' src={image ? image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'} alt="" />
                 <h2 className='name'>{first_name} {last_name}</h2>
                 <Link to='/addchild' className='button'>Add Child</Link>
-                <button className='button'>View Charts</button>
+                <Link to='/charts' className='button'>View Charts</Link>
                 <Link to='/profileedit' className='button'>Edit Profile</Link>
             </div>
             <ChildList />

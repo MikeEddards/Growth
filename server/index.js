@@ -4,9 +4,13 @@ const massive = require('massive')
 const session = require('express-session')
 const auth = require('./controllers/auth')
 const children_ctrl = require('./controllers/children_ctrl')
-const aws = require('aws-sdk');
+const s3Controller = require('./controllers/s3Controller')
+const dataInjector = require('./controllers/dataInjector')
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
+const { SERVER_PORT, 
+  CONNECTION_STRING, 
+  SESSION_SECRET 
+  } = process.env
 
 const app = express()
 
@@ -48,46 +52,19 @@ app.delete('/api/deletechild/:id', children_ctrl.deleteChild)
 app.put('/api/updateinfo/:id', children_ctrl.updateChildName)
 app.put('/api/updatedata', children_ctrl.updateDataSet)
 
+app.get('/sign-s3', s3Controller.awsCall) 
+
+app.post('/inject036weight', dataInjector.weight_0_36)
+app.post('/inject220bmi', dataInjector.bmi_2_20)
+app.post('/injectheadsize', dataInjector.head_size)
+app.post('/inject036height', dataInjector.height_0_36)
+app.post('/inject220height', dataInjector.height_2_20)
+app.post('/inject220weight', dataInjector.weight_2_20)
 
 
-const {
-    S3_BUCKET,
-    AWS_ACCESS_KEY_ID,
-    AWS_SECRET_ACCESS_KEY
-} = process.env
 
-app.get('/sign-s3', (req, res) => {
 
-  aws.config = {
-    region: 'us-west-1',
-    accessKeyId: AWS_ACCESS_KEY_ID,
-    secretAccessKey: AWS_SECRET_ACCESS_KEY
-  }
-  
-  const s3 = new aws.S3();
-  const fileName = req.query['file-name'];
-  const fileType = req.query['file-type'];
-  const s3Params = {
-    Bucket: S3_BUCKET,
-    Key: fileName,
-    Expires: 60,
-    ContentType: fileType,
-    ACL: 'public-read'
-  };
 
-  s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if(err){
-      console.log(err);
-      return res.end();
-    }
-    const returnData = {
-      signedRequest: data,
-      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
-    };
-
-    return res.send(returnData)
-  });
-});
 
 
 app.listen(SERVER_PORT, () => console.log(`All ears on port: ${SERVER_PORT}`))

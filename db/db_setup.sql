@@ -13,7 +13,8 @@ CREATE TABLE "child" (
   "parent_id" integer,
   "sex" varchar(10),
   "first_name" varchar(50),
-  "last_name" varchar(50)
+  "last_name" varchar(50),
+  "image" text
 );
 
 CREATE TABLE "age_data" (
@@ -25,6 +26,114 @@ CREATE TABLE "age_data" (
   "weight" decimal,
   "head_size" decimal,
   "image" text
+);
+
+CREATE TABLE "weight_0_36" (
+  "data_set_id" serial,
+  "Sex" integer,
+  "Agemos" integer,
+  "L" integer,
+  "M" integer,
+  "S" integer,
+  "p3" integer,
+  "p5" integer,
+  "p10" integer,
+  "p25" integer,
+  "p50" integer,
+  "p75" integer,
+  "p90" integer,
+  "p95" integer,
+  "p97" integer
+);
+
+CREATE TABLE "height_0_36" (
+  "data_set_id" serial,
+  "Sex" integer,
+  "Agemos" integer,
+  "L" integer,
+  "M" integer,
+  "S" integer,
+  "p3" integer,
+  "p5" integer,
+  "p10" integer,
+  "p25" integer,
+  "p50" integer,
+  "p75" integer,
+  "p90" integer,
+  "p95" integer,
+  "p97" integer
+);
+
+CREATE TABLE "head_0_36" (
+  "data_set_id" serial,
+  "Sex" integer,
+  "Agemos" integer,
+  "L" integer,
+  "M" integer,
+  "S" integer,
+  "p3" integer,
+  "p5" integer,
+  "p10" integer,
+  "p25" integer,
+  "p50" integer,
+  "p75" integer,
+  "p90" integer,
+  "p95" integer,
+  "p97" integer
+);
+
+CREATE TABLE "bmi_2_20" (
+  "data_set_id" serial,
+  "Sex" integer,
+  "Agemos" integer,
+  "L" integer,
+  "M" integer,
+  "S" integer,
+  "p3" integer,
+  "p5" integer,
+  "p10" integer,
+  "p25" integer,
+  "p50" integer,
+  "p75" integer,
+  "p90" integer,
+  "p95" integer,
+  "p97" integer
+);
+
+CREATE TABLE "height_2_20" (
+  "data_set_id" serial,
+  "Sex" integer,
+  "Agemos" integer,
+  "L" integer,
+  "M" integer,
+  "S" integer,
+  "p3" integer,
+  "p5" integer,
+  "p10" integer,
+  "p25" integer,
+  "p50" integer,
+  "p75" integer,
+  "p90" integer,
+  "p95" integer,
+  "p97" integer
+);
+
+CREATE TABLE "weight_2_20" (
+  "data_set_id" serial,
+  "Sex" integer,
+  "Agemos" integer,
+  "L" integer,
+  "M" integer,
+  "S" integer,
+  "p3" integer,
+  "p5" integer,
+  "p10" integer,
+  "p25" integer,
+  "p50" integer,
+  "p75" integer,
+  "p90" integer,
+  "p95" integer,
+  "p97" integer
 );
 
 ALTER TABLE "age_data" ADD FOREIGN KEY ("child_id") REFERENCES "child" ("child_id");
