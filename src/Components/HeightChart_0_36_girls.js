@@ -180,7 +180,7 @@ class HeightChart_0_36_girls extends Component {
                                     }] 
                                 })
                     }
-                    else if((find.length !== 0 && child.age <= 3)&&(find.length === 0 && child.sex === 'female')){
+                    else if((find.length !== 0 && child.age <= 3)&&(find.length !== 0 && child.sex === 'female')){
                   
                         const updateDataSet = this.state.dataSet[index].data.push({
                             x: +child.age * 12,
