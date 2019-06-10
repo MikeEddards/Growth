@@ -19,7 +19,7 @@ class Login extends Component {
     }
     userLogin = (e) => {
         e.preventDefault()
-        console.log(this.props)
+      
         const {username, password} = this.state
         axios.post('/auth/login', {username, password})
         .then(res => this.props.history.push('/dashboard'))

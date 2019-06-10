@@ -9,3 +9,6 @@ where id = ${id};
 
 update users set image = ${image}
 where id = ${id};
+
+SELECT email, first_name, last_name, image from users
+where id = ${id};

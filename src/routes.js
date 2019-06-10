@@ -7,7 +7,9 @@ import ChildEdit from './Components/ChildEdit'
 import DataAdder from './Components/DataAdder';
 import ProfileEdit from './Components/ProfileEdit';
 import AddChild from './Components/AddChild';
-import HeightChart from './Components/HeightChart';
+import HeightChart_0_36_boys from './Components/HeightChart_0_36_boys';
+import HeightChart_0_36_girls from './Components/HeightChart_0_36_girls'
+import ChartList from './Components/ChartList'
 
 export default (
     <Switch>
@@ -18,6 +20,8 @@ export default (
         <Route path='/childdata/:id' component={DataAdder} />
         <Route path='/profileedit' component={ProfileEdit} />
         <Route path='/addchild' component={AddChild} />
-        <Route path='/charts' component={HeightChart} />
+        <Route path='/charts' component={ChartList} />
+        <Route path='/HeightChart036boys' component={HeightChart_0_36_boys} />
+        <Route path='/HeightChart036girls' component={HeightChart_0_36_girls} />
     </Switch>
 )

@@ -56,7 +56,7 @@ try{
     this.setState({isUploading: true})
     
     const fileName = `${randomstring.generate()}-${file.name.replace(/\s/g, '-')}`
-    console.log(fileName)
+ 
     axios.get('/sign-s3', {
         params: {
         'file-name': fileName,
@@ -64,7 +64,6 @@ try{
         }
     }).then( (res) => {
         const { signedRequest, url } = res.data 
-        console.log(res.data)
         this.uploadFile(file, signedRequest, url)
     }).catch( err => {
         console.log(err)
@@ -94,7 +93,7 @@ try{
     }
     addData = (e) => {
         e.preventDefault()
-        console.log(this.props)
+
         const {
             age,
             height,
@@ -110,7 +109,7 @@ try{
             head_size,
             image})
         .then(res => {
-            console.log(res.data)
+
             this.setState({
                 allData: [...this.state.allData, res.data[0]]
             })
@@ -129,7 +128,6 @@ try{
 
 
     render() {
-       console.log(this.state.allData)
         return (
           <div className='box' >  
             <div className='container'>
@@ -181,6 +179,7 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
 
                     
                     <button onClick={this.addData} className='button'>Add Data</button>
+                    <Link className='button' to='/dashboard'>Cancel</Link>
                 </form>
             </div>
             

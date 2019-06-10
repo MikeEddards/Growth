@@ -1,0 +1,60 @@
+
+.chartBox{
+    height: 55vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.chartBox h1{
+    text-align: center;
+    margin-top: 5vh;
+    width: 40vw;
+    height: 20vh;
+    font-family: 'Mada', sans-serif;
+    color: #304246;
+    background: #F9FAFB;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+}
+.chartBox p{
+    font-family: 'Mada', sans-serif;
+    color: #304246;
+
+}
+.chartList{
+    height: 65vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    color: #304246;
+    background: #F9FAFB;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+}
+.charts{
+    text-align: center;
+    margin-top: 5vh;
+    width: 15vw;
+    height: 15vh;
+    font-family: 'Mada', sans-serif;
+    background-image: linear-gradient(rgba(249, 250, 251, 0.192),rgba(89, 248, 232, 0.192),rgba(32, 166, 243, 0.192), rgba(89, 248, 232, 0.192), rgba(249, 250, 251, 0.192)),
+    url('../Image/chart.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #304246;
+    box-shadow: 20px 20px 30px  #30424650,
+     -20px -20px 20px #fff ;
+     cursor: pointer;
+     text-decoration: none;
+}
+.charts:hover{
+    border: 1px solid #304246;
+}
+.cancelButtonBox{
+    margin-top: 3vh;
+}

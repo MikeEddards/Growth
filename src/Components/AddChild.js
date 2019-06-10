@@ -61,7 +61,7 @@ class AddChild extends Component {
             }
         }).then( (res) => {
             const { signedRequest, url } = res.data 
-            console.log(res.data)
+    
             this.uploadFile(file, signedRequest, url)
         }).catch( err => {
             console.log(err)
@@ -84,11 +84,11 @@ class AddChild extends Component {
             })
         }
 render() {
-    console.log(this.state)
+ 
     return (
         <div className='container'>
             <div className='logInTitle'>
-                <h1>Register</h1>
+                <h1>Add Data</h1>
             </div>
             <form className='loginForm' onSubmit={this.addChild}>
                  <input 
@@ -125,7 +125,7 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
             </Dropzone> 
 
                 <Link to='/dashboard' className='button'
-                onClick={this.addChild}>Register</Link>
+                onClick={this.addChild}>Add</Link>
                 <Link to='/dashboard' className='button'
                 >Cancel</Link>
             </form>

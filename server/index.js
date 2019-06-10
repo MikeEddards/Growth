@@ -6,6 +6,7 @@ const auth = require('./controllers/auth')
 const children_ctrl = require('./controllers/children_ctrl')
 const s3Controller = require('./controllers/s3Controller')
 const dataInjector = require('./controllers/dataInjector')
+const cdcChartData = require('./controllers/cdcChartData')
 
 const { SERVER_PORT, 
   CONNECTION_STRING, 
@@ -61,6 +62,8 @@ app.post('/inject036height', dataInjector.height_0_36)
 app.post('/inject220height', dataInjector.height_2_20)
 app.post('/inject220weight', dataInjector.weight_2_20)
 
+app.get('/cdcheight036boys', cdcChartData.boyHeight_0_36)
+app.get('/cdcheight036girls', cdcChartData.girlHeight_0_36)
 
 
 

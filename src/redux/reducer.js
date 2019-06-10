@@ -1,6 +1,4 @@
 const initialState = {
-        id: null,
-        username: '',
         email: '',
         first_name: '',
         last_name: '',
@@ -32,8 +30,8 @@ export function clearStore(){
 function reducer (state = initialState, action){
     switch (action.type){
         case UPDATE_USER:
-            const {id, username, email, first_name, last_name, image} = action.payload
-            return {id, username, email, first_name, last_name, image}
+            const {email, first_name, last_name, image} = action.payload
+            return {email, first_name, last_name, image}
         case GET_CHILDREN:
            return {
                ...state,

@@ -34,10 +34,10 @@ import {clearStore} from '../redux/reducer'
             </div>
     
         <ul className='links'>
-            {this.props.id ? <Link className='list' to='/dashboard'>Dashboard</Link> : <Link className='list' to='/'>Home</Link>}
+            {this.props.email ? <Link className='list' to='/dashboard'>Dashboard</Link> : <Link className='list' to='/'>Home</Link>}
             
 
-            {this.props.id ? <Link onClick={this.logOut} to='/' className='list'>Log Out</Link> :
+            {this.props.email ? <Link onClick={this.logOut} to='/' className='list'>Log Out</Link> :
             <Link to='/register' className='list'>Register</Link>}
 
             <li className='list'>About</li>

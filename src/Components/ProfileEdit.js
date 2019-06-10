@@ -5,6 +5,7 @@ import Dropzone from 'react-dropzone'
 import { BarLoader } from 'react-spinners'
 import randomstring from 'randomstring'
 import {Link} from 'react-router-dom'
+import { updateUser} from '../redux/reducer'
 
 
 class ProfileEdit extends Component {
@@ -21,12 +22,15 @@ class ProfileEdit extends Component {
             url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'
         }
     }  
+
     componentDidMount(){
         
         return axios.get('/auth/user')
         .then(res => {
+       
           this.setState({
-              user: res.data
+              user: res.data,
+              image: res.data.image
           })
             
         })
@@ -40,13 +44,14 @@ class ProfileEdit extends Component {
             image} = this.state
 
 
-        if(this.state){
+        
         axios.put('/auth/updateuser', {
             email,
             first_name, 
             last_name, 
             image} )
-        .then(res => this.props.history.push('/dashboard'))
+        .then(res => {console.log(res.data)
+            this.props.history.push('/dashboard')})
         .catch((err) => {console.log(err)
         alert('Incorect Username or Password')})
         e.target.first_name = ''
@@ -55,10 +60,9 @@ class ProfileEdit extends Component {
             image: '',
         
         })
-    }else{
-          this.props.history.push('/dashboard')
+   
     }
-    }
+    
 
 getSignedRequest = ([file]) => {
     this.setState({isUploading: true})
@@ -72,7 +76,7 @@ getSignedRequest = ([file]) => {
         }
     }).then( (res) => {
         const { signedRequest, url } = res.data 
-        console.log(res.data)
+
         this.uploadFile(file, signedRequest, url)
     }).catch( err => {
         console.log(err)
@@ -155,8 +159,9 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
         )
     }
 }
+
 function mapStateToProps(state){
     return state
 }
 
-export default connect(mapStateToProps)(ProfileEdit)
+export default connect(mapStateToProps,{updateUser})(ProfileEdit)

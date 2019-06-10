@@ -13,7 +13,6 @@ class ChildList extends Component {
 
 
 async componentDidMount(){
-    console.log('here')
     const children = await axios.get('/api/getchildren')
     this.props.getChildren(children.data)
      childList = await this.props.children.map((child, i)=>(
