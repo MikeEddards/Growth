@@ -2,9 +2,9 @@
     height: 60vh;
     width: 30vw;
     background: #F9FAFB;
-    box-shadow: 20px 20px 30px  #30424650,
-     -20px -20px 20px #fff ;
-     margin-top: 1em;
+    box-shadow: 8px 8px 6px -6px #304246,
+    -8px -8px 6px #fff ;
+    margin-top: 4em;
     
 }
 .logInTitle{
@@ -14,7 +14,7 @@
     color: #304246;
     font-size: 1.5em;
     font-style: italic;
-    border-bottom: 1px solid #304246;
+    box-shadow: 0 8px 6px -6px #304246;
 }
 .loginForm{
     display: flex;
@@ -36,7 +36,7 @@ input{
     font-family: 'Mada', sans-serif;
     background: #59F8E8;
     padding: 5px 15px;
-    border: 1px solid #304246;
+    box-shadow: 0 8px 6px -6px #304246;
     border-radius: 4px;
     text-decoration: none;
     color: #304246;

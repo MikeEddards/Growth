@@ -2,18 +2,19 @@
     height: 60vh;
     width: 30vw;
     background: #F9FAFB;
-    box-shadow: 20px 20px 30px  #30424650,
-     -20px -20px 20px #fff ;
+    box-shadow: 8px 8px 6px -6px #304246,
+    -8px -8px 6px #fff ;
      margin-top: 1em;
      display: flex;
      justify-content: space-evenly;
      align-items: center;
      flex-direction: column;
+     
 }
 .profilePic{
     max-width: 30vw;
     max-height: 30vh;
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246
 }
 .name{
 
@@ -24,13 +25,18 @@
 .button{
 
     font-family: 'Mada', sans-serif;
-    background: #B15967;
+    background: #20A4F3;
     padding: 5px 15px;
     border: 1px solid #304246;
     border-radius: 4px;
     text-decoration: none;
     color: #F9FAFB;
     cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+.button:hover{
+    color: #F9FAFB;
+    background-color: #B15967;
 }
 .maindash{
     padding: 0;

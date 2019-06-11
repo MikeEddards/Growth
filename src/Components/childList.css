@@ -2,18 +2,18 @@
 
     font-family: 'Mada', sans-serif;
     padding: 5px 15px;
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246;
     border-radius: 4px;
     text-decoration: none;
-    color: #304246;
+    color: #F9FAFB;
 
 }
 .childbox{
     height: 60vh;
     width: 51vw;
     background: #F9FAFB;
-    box-shadow: 20px 20px 30px  #30424650,
-     -20px -20px 20px #fff ;
+    box-shadow: 8px 8px 6px -6px #304246,
+    -8px -8px 6px #fff ;
      margin-top: 1em;
      display: flex;
      justify-content: space-evenly;
@@ -31,7 +31,7 @@
 }
 .kid{
     
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246;
     width:  49vw;
     height: 15vh;
     display: flex;
@@ -40,6 +40,6 @@
     
 }
 .childPic{
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246;
     max-height: 14vh;
 }

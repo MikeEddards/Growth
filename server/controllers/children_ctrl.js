@@ -122,12 +122,13 @@ module.exports = {
         }
     },
     updateDataSet: async (req, res) => {
-        const {data_id, age, height, weight, head_size, image} = req.body
+        const {age, height, weight, head_size, image} = req.body
         const {session} = req
+        const dataId = +req.params.id
         const db = req.app.get('db')
         if(session.user){
         const childData = await db.update_child_data({  
-            data_id,
+            data_id: dataId,
             age, 
             height, 
             weight, 

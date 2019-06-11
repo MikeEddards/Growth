@@ -51,7 +51,7 @@ app.get('/api/getchildinfo/:id', children_ctrl.getChildInfo)
 app.get('/api/alldata', children_ctrl.getAllchildrenData)
 app.delete('/api/deletechild/:id', children_ctrl.deleteChild)
 app.put('/api/updateinfo/:id', children_ctrl.updateChildName)
-app.put('/api/updatedata', children_ctrl.updateDataSet)
+app.put('/api/updatedata/:id', children_ctrl.updateDataSet)
 
 app.get('/sign-s3', s3Controller.awsCall) 
 
@@ -64,6 +64,16 @@ app.post('/inject220weight', dataInjector.weight_2_20)
 
 app.get('/cdcheight036boys', cdcChartData.boyHeight_0_36)
 app.get('/cdcheight036girls', cdcChartData.girlHeight_0_36)
+app.get('/cdcweight036boys', cdcChartData.boyWeight_0_36)
+app.get('/cdcweight036girls', cdcChartData.girlWeight_0_36)
+app.get('/cdcheadsizeboys', cdcChartData.boyHead_0_36)
+app.get('/cdcheadsizegirls', cdcChartData.girlHead_0_36)
+app.get('/cdcbmiboys', cdcChartData.boyBmi_2_20)
+app.get('/cdcbmigirls', cdcChartData.girlBmi_2_20)
+app.get('/cdc220heightboys', cdcChartData.boyHeight_2_20)
+app.get('/cdc220heightgirls', cdcChartData.girlHeight_2_20)
+app.get('/cdc220weightboys', cdcChartData.boyWeight_2_20)
+app.get('/cdc220weightgirls', cdcChartData.girlWeight_2_20)
 
 
 

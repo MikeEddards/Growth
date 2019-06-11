@@ -40,6 +40,7 @@ try{
           {child.weight && <h3 className='h3'>{child.weight}</h3>}
           {child.head_size ? <h3 className='h3'>{child.head_size}</h3> :
          <h3 className='h3'>none</h3> }
+         <button className='button' >Edit</button>
 
       </div>
   ))
