@@ -56,7 +56,7 @@ module.exports ={
     },
     girlWeight_2_20: async (req, res) => {
         const db = req.app.get('db')
-        const data = await db.select_2_20_Weight_girls()
+        const data = await db.select_2_20_weight_girls()
         res.status(200).send(data)
     }
 }

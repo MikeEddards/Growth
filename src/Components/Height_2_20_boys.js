@@ -36,39 +36,39 @@ class Height_2_20_boys extends Component {
                     Agemos: [...this.state.Agemos, Math.floor(+num.Agemos /12)],
                     p3: [...this.state.p3, {
                         x: +num.Agemos /12 ,
-                        y: +num.p3
+                        y: +num.p3 / 2.54
                         } ],
                     p5: [...this.state.p5, {
                         x: +num.Agemos /12 ,
-                        y: +num.p5
+                        y: +num.p5 / 2.54
                         } ],
                     p10: [...this.state.p10, {
                         x: +num.Agemos /12 ,
-                        y: +num.p10
+                        y: +num.p10 / 2.54
                         } ],
                     p25: [...this.state.p25, {
                         x: +num.Agemos /12 ,
-                        y: +num.p25
+                        y: +num.p25 / 2.54
                         } ],
                     p50: [...this.state.p50, {
                         x: +num.Agemos /12 ,
-                        y: +num.p50
+                        y: +num.p50 / 2.54
                         } ],
                     p75: [...this.state.p75, {
                         x: +num.Agemos /12 ,
-                        y: +num.p75
+                        y: +num.p75 / 2.54
                         } ],
                     p90: [...this.state.p90, {
                         x: +num.Agemos /12 ,
-                        y: +num.p90
+                        y: +num.p90 / 2.54
                         } ],
                     p95: [...this.state.p95, {
                         x: +num.Agemos /12 ,
-                        y: +num.p95
+                        y: +num.p95 / 2.54
                         } ],
                     p97: [...this.state.p97, {
                         x: +num.Agemos /12 ,
-                        y: +num.p97
+                        y: +num.p97 / 2.54
                         } ]
                    })
             })
@@ -201,7 +201,7 @@ class Height_2_20_boys extends Component {
                                 data: [
                                         {
                                         x: +child.age ,
-                                        y: +child.height * 2.54
+                                        y: +child.height 
                                         }
                                       ]
                                     }] 
@@ -211,7 +211,7 @@ class Height_2_20_boys extends Component {
                   
                         const updateDataSet = this.state.dataSet[index].data.push({
                             x: +child.age ,
-                            y: +child.height * 2.54
+                            y: +child.height 
                         });
                         this.setState({
                             [this.state.dataSet[index].data]: updateDataSet
@@ -230,13 +230,13 @@ class Height_2_20_boys extends Component {
     }
     
     render() {
-        console.log(this.state.dataSet)
+
     
     
        const data = {
            labels: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
            xAxisId: 'Age in Years',
-           yAxisId: 'Height in cm',
+           yAxisId: 'Height in inches',
            datasets: this.state.dataSet
            
            
@@ -275,7 +275,7 @@ class Height_2_20_boys extends Component {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Height in cm'
+                        labelString: 'Height in inches'
                     }
                 }]    
                 }
@@ -284,7 +284,7 @@ class Height_2_20_boys extends Component {
         
           
         />
-        <p>*Measurements are in cm</p>
+        <p>*Measurements are in inches</p>
         <h1>Height chart for boys 2-20 years old</h1>
         <div className='cancelButtonBox'>
         <Link to='/charts' className='button'>Back</Link>

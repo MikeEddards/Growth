@@ -16,7 +16,7 @@ import {clearStore} from '../redux/reducer'
      logOut = () => {
         this.props.clearStore()
         axios.get('/auth/logout')
-        .then(res => console.log('ok') )
+        
     
      }
      render() {

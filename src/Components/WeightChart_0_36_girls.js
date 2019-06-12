@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import {Line, defaults } from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 import './charts.css'
 
-defaults.global.maintainAspectRatio = false
+
 
 class WeightChart_0_36_girls extends Component {
     constructor(){

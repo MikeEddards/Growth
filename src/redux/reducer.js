@@ -38,7 +38,7 @@ function reducer (state = initialState, action){
                children: action.payload
            }
         case CLEAR_STORE:
-            console.log('bam')
+
             return{
                 ...initialState
             }       
