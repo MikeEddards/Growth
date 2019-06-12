@@ -1,0 +1,46 @@
+.dataForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%; 
+    height: 90%;
+}
+.datacontainer{
+    height: 75vh;
+    width: 30vw;
+    background: #F9FAFB;
+    box-shadow: 8px 8px 6px -6px #304246,
+    -8px -8px 6px #fff ;
+    margin-top: 2em;
+}
+.dataForm input {
+    height: 2vh;
+    margin-bottom: 1vh;
+}
+.dataForm .button{
+    padding: 3px 15px;
+    margin-top: 1vh;
+}
+.dataForm h4{
+    margin: 0;
+}
+.buttonDel {
+    padding: 3px 15px;
+    margin-top: 1vh;
+    transition: all 200ms ease-in-out;
+    background-color: #B15967;
+    color: #F9FAFB;
+    font-family: 'Mada', sans-serif;
+    border: 1px solid #304246;
+    box-shadow: 0 8px 6px -6px #304246;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.buttonDel:hover{
+    color: #F9FAFB;
+
+    background: #304246;
+    
+}

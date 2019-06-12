@@ -126,6 +126,7 @@ module.exports = {
         const {session} = req
         const dataId = +req.params.id
         const db = req.app.get('db')
+ 
         if(session.user){
         const childData = await db.update_child_data({  
             data_id: dataId,
@@ -139,11 +140,39 @@ module.exports = {
     }else {
         return res.status(401).send('Please Log Back In')
     }
-    }
+    },
+    getOneDataSet: async (req, res) => {
+       
+        const db = req.app.get('db')
+        const {session} = req
+        const dataId = +req.params.id
+        if(session.user){
+            const data = await db.get_one_data({
+                data_id: dataId
+            })
+           
+            return res.status(200).send(data)
+        }else{
+            return res.status(401).send('Please Log Back In')
+        }
+        
 
+ },
+ deleteDataPoint: (req, res) => {
+     const db = req.app.get('db')
+     const dataId = +req.params.id
+     const {session} = req
+     if(session.user){
+         db.delete_data_point({
+             data_id: dataId
+         })
+         res.sendStatus(200)
+     }else{
+        return res.status(401).send('Please Log Back In')
+    }
  }
 
-
+}
 
 
 

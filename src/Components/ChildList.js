@@ -19,7 +19,7 @@ async componentDidMount(){
         <div key={child.child_id} className='kid'>
             <img className='childPic' src={child.image ? child.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'} alt="" />
             <h2 className='name'>{child.first_name} {child.last_name}</h2>
-            <Link className='button' to={`/childdata/${child.child_id}`}>Add Data</Link>
+            <Link className='button' to={`/childdata/${child.child_id}`}>Data</Link>
             <Link className='button' to={`/childedit/${child.child_id}`} >Edit</Link>
             <span className='colorDisplay' style={{background: `${child.color}`}}>Chart color</span>
         </div>

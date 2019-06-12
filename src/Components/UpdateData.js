@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import './login.css'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import './dataAdder.css'
+import './dataupdate.css'
 import Dropzone from 'react-dropzone'
 import { BarLoader } from 'react-spinners'
 import randomstring from 'randomstring'
 
 
 
-let dataSet
 
-class DataAdder extends Component {
+
+class UpdateData extends Component {
     constructor(){
         super()
         this.state = {
@@ -21,37 +21,22 @@ class DataAdder extends Component {
             weight: null,
             head_size: null,
             image: '',
-            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg',
-            isUploading: false,
-            isMonths: false
+            isUploading: false
             
         }
     }
 async componentDidMount(){
 
-  const res = await axios.get(`/api/childdata/${this.props.match.params.id}`) 
-try{
-  dataSet = await res.data.map(child => (
-      <div className='data' key={child.data_id}>
-          <div className='h3'>
-          {child.image && <img className='dataPic' src={child.image} /> }
-          </div>
-          {child.age && <h3 className='h3'>{child.age}</h3>}
-          {child.height && <h3 className='h3'>{child.height}</h3>}
-          {child.weight && <h3 className='h3'>{child.weight}</h3>}
-          {child.head_size ? <h3 className='h3'>{child.head_size}</h3> :
-         <h3 className='h3'>none</h3> }
-         <Link className='button' to={`/dataedit/${child.child_id}${child.data_id}`} >Edit</Link>
-
-      </div>
-  ))
+  const res = await axios.get(`/api/getonedata/${this.props.match.params.id}`) 
+    .then(res => {
         this.setState({
-            allData: res.data 
+            age: +res.data[0].age,
+            height: +res.data[0].height,
+            weight: +res.data[0].weight,
+            head_size: +res.data[0].head_size,
+            image: res.data[0].image,
         })
-    }
-        catch(err){
-            this.props.history.push('/')
-        }
+    })
 }
  
     getSignedRequest = ([file]) => {
@@ -103,67 +88,75 @@ try{
             head_size,
             image
         } = this.state
-        axios.post('/api/adddata', {
-            child_id: this.props.match.params.id,
-            age,
-            height,
-            weight,
-            head_size,
+        axios.put(`/api/updatedata/${this.props.match.params.id}`, {
+            age: age,
+            height: +height || null,
+            weight: +weight || null,
+            head_size: +head_size || null,
             image})
         .then(res => {
 
             this.setState({
-                allData: [...this.state.allData, res.data[0]]
-            })
-            this.props.history.push('/dashboard')
-        })
-        .catch((err) => {console.log(err)
-        alert('Incorect Username or Password')})
-        e.target.age = null
-        e.target.height = null
-        e.target.weight = null
-        e.target.head_size = null
-        this.setState({
             image: ''
         })
+            this.props.history.push(`/childdata/${this.props.match.params.childid}`)
+        })
+        .catch((err) => {console.log(err)})
+        
+    }
+    handleDelete = (e) => {
+        axios.delete(`/api/deletedatapoint/${this.props.match.params.id}`)
+        .then(res => {
+            this.setState({
+            image: ''
+        })
+            this.props.history.push(`/childdata/${this.props.match.params.childid}`)
+        })
+    }
+    handleCancel = () => {
+        this.props.history.push(`/childdata/${this.props.match.params.childid}`)
     }
 
-
     render() {
+
         return (
           <div className='box' >  
-            <div className='container'>
+            <div className='datacontainer'>
                 <div className='logInTitle'>
-                    <h1>Add Data</h1>
+                    <h1>Edit Data</h1>
                 </div>
-                <form className='loginForm' onSubmit={this.addData}>
-                    <img className='addedImage' src={this.state.image ? this.state.image : this.state.url} alt=""/>
+                <form className='dataForm' onSubmit={this.addData}>
+                    <img className='addedImage' src={this.state.image} alt=""/>
+                    <h4>Age</h4>
                     <input 
                     className='username'
                     type="number"
                     name='age'
-                    placeholder='Age'
+                    placeholder={this.state.age}
                     onChange={this.handleChange}
                     />
+                    <h4>Height</h4>
                     <input 
                     className='username'
                     type="number"
                     name='height'
-                    placeholder='Height'
+                    placeholder={this.state.height}
                     onChange={this.handleChange}
                     />
+                    <h4>Weight</h4>
                     <input 
                     className='username'
                     type="number"
                     name='weight'
-                    placeholder='Weight'
+                    placeholder={this.state.weight}
                     onChange={this.handleChange}
                     />
+                    <h4>Head size</h4>
                     <input 
                     className='username'
                     type="number"
                     name='head_size'
-                    placeholder='Head size'
+                    placeholder={this.state.head_size}
                     onChange={this.handleChange}
                     />
             <Dropzone
@@ -180,28 +173,14 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
             </Dropzone>  
 
                     
-                    <button onClick={this.addData} className='button'>Add Data</button>
-                    <Link className='button' to='/dashboard'>Cancel</Link>
+                    <button onClick={this.addData} className='button'>Update Data</button>
+                    <button className='button' onClick={this.handleCancel}>Cancel</button>
+                    <button className='buttonDel' onClick={this.handleDelete}>Delete</button>
                 </form>
-            </div>
-            
-                <div className='dataContainer'>
-                <div className='dataSet'>
-                        
-                    <h3 className='h3'>Image</h3>
-                    <h3 className='h3'>Age</h3>
-                    <h3 className='h3'>Height</h3>
-                    <h3 className='h3'>Weight</h3>
-                    <h3 className='h3'>Head size</h3>
-                </div>         
-                <dir className='displayData'>           
-                    {dataSet}
-                </dir>         
-                        
-             </div>           
+            </div>       
         </div>
         
         )
     }
 }
-export default DataAdder
+export default UpdateData

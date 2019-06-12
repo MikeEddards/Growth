@@ -50,7 +50,7 @@ class ProfileEdit extends Component {
             first_name, 
             last_name, 
             image} )
-        .then(res => {console.log(res.data)
+        .then(res => {
             this.props.history.push('/dashboard')})
         .catch((err) => {console.log(err)
         alert('Incorect Username or Password')})
@@ -68,7 +68,7 @@ getSignedRequest = ([file]) => {
     this.setState({isUploading: true})
     
     const fileName = `${randomstring.generate()}-${file.name.replace(/\s/g, '-')}`
-    console.log(fileName)
+   
     axios.get('/sign-s3', {
         params: {
         'file-name': fileName,

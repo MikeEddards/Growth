@@ -24,7 +24,7 @@
     height: 90%;
     width: 100%;
 }
-input{
+.username, .password{
     border: 1px solid #304246;
     height: 4vh;
     text-align: center;

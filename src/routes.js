@@ -18,6 +18,7 @@ import HeadSize_0_36_boys from './Components/HeadSize_boys';
 import HeadSize_0_36_girls from './Components/HeadSize_girls';
 import Weight_2_20_boys from './Components/Weight_2_20_boys';
 import Weight_2_20_girls from './Components/Weight_2_20_girls';
+import UpdateData from './Components/UpdateData';
 
 export default (
     <Switch>
@@ -39,6 +40,7 @@ export default (
         <Route path='/cdcheadsize036girls' component={HeadSize_0_36_girls} />
         <Route path='/cdcweight220boys' component={Weight_2_20_boys} />
         <Route path='/cdcweight220girls' component={Weight_2_20_girls} />
+        <Route path='/dataedit/:childid:id' component={UpdateData} />
 
     </Switch>
 )

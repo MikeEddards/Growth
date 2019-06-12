@@ -45,6 +45,7 @@ app.put('/auth/updateuser', auth.updateUser)
 
 app.post('/api/addchild', children_ctrl.addChild)
 app.post('/api/adddata', children_ctrl.addChildData)
+app.get('/api/getonedata/:id', children_ctrl.getOneDataSet)
 app.get('/api/getchildren', children_ctrl.getChildren)
 app.get('/api/childdata/:id', children_ctrl.getChildData)
 app.get('/api/getchildinfo/:id', children_ctrl.getChildInfo)
@@ -52,6 +53,7 @@ app.get('/api/alldata', children_ctrl.getAllchildrenData)
 app.delete('/api/deletechild/:id', children_ctrl.deleteChild)
 app.put('/api/updateinfo/:id', children_ctrl.updateChildName)
 app.put('/api/updatedata/:id', children_ctrl.updateDataSet)
+app.delete('/api/deletedatapoint/:id', children_ctrl.deleteDataPoint)
 
 app.get('/sign-s3', s3Controller.awsCall) 
 

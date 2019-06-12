@@ -11,7 +11,7 @@ class HeightChart_0_36_boys extends Component {
         super()
         this.state ={
             heightBirth: [],
-            Agemos: [],
+            Agemos: [-1],
             p3: [],
             p5: [],
             p10: [],
@@ -29,7 +29,18 @@ class HeightChart_0_36_boys extends Component {
     componentDidMount(){
 
         axios.get('/cdcheight036boys')
-        .then(res => {this.setState({heightBirth: res.data})})
+        .then(res => {this.setState({
+                heightBirth: res.data,
+                p3: [res.data[0].p3],
+                p5: [res.data[0].p5],
+                p10: [res.data[0].p10],
+                p25: [res.data[0].p25],
+                p50: [res.data[0].p50],
+                p75: [res.data[0].p75],
+                p90: [res.data[0].p90],
+                p95: [res.data[0].p95],
+                p97: [res.data[0].p97]
+                        })})
         .then(res => { 
             let sort = this.state.heightBirth.map((num)=>{
                 this.setState({
@@ -207,7 +218,7 @@ class HeightChart_0_36_boys extends Component {
     
     
        const data = {
-           labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],
+           labels: [-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],
            xAxisId: 'Age in months',
            yAxisId: 'Height in cm',
            datasets: this.state.dataSet

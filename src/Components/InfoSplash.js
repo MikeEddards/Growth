@@ -1,10 +1,17 @@
 import React from 'react'
 import './infoSplash.css'
+
 function InfoSplash() {
     return (
         <div>
-            <div className='infoContainer'>
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEX///+enp6YmJjf39/j4+Obm5uXl5fn5+fZ2dnz8/Orq6vIyMihoaH8/Py4uLjHx8darPrEAAAEpElEQVR4nO2d7XLjIAxFHbfESZO47/+2O9mZbspEYAQSiLs6/3ZnmnBiuMbma1kcx3Ecx3Ecx3EcxwHigchvwY/1hMf64Yaz44bz44bz44bz44bz44Z/CesMhHrDsG+f9tl2WrHoGq63xT63VOGL2uG6Dyt4KXuy7GVJE74eyc+2wOMr0QrLszScrsOKf8z1lBRk3C3CNkzgiC3tx7ofni/DFPJczrlic+74Z5uRessK5gzfL73JSCVCNCp52vBO/Db2IpUK0fPtXmZI1e9wtxWp1zsheFnKDE9kRgVTkboRwfEs4O9/Zw1TP5EVkpWs3DBRzcf4vPGdDAqGIRlVRiI1UzKWIXW7sRCp2drFM7QZqfmEYBpSiTU6UrdA9EdeReIa2ovUo2rFNrQWqYfRwDe0FanHZakxpH83fZt3SupTlaGVSC3KhDrDZCewK9Tj/PpWiEpDC5FaWJFqDcdHamn/qtpwdKQWf3uD4cheKqMGtRiOi1ROCjQZFqaZOKwkbzMcE6m8qtNoOCJSmc2/1bB/pHK/r92wb6Ty64yAYc9IrWj3EoZHT9ly1LxhEDHsFalVlUXGsE+k1jV4IcMekVr5DWKGmbfOIpC15LvgD+UMdSO1vqULGmo++Dd0gCUN9SK1pXqIGmpFalOvSdZQJ1LbPlPaUL6X2lovxA2lI7W5bcsbyj74t+ezgiE5s6wyUqkKwZxVp2EoF6kSjVrFUCpSRT5FyVDi1xeqCVqG7ZEq1UFSMyQjlZGCjX/+Qs+w7SLI3VUVDVsakmDPSNOwPgwle7e6hnXXQvYJRdmwplMi2CV6om3I71hKj2epG3IjVfxtj74hr1nJD4J0MOREo8Irgi6GpVdG5TVPH8Oy1qXzqq6TYUlCKr1u7WV4fIG0Xpl3MzwaeFAb9uhnmA9KvaGrnobpSNUcfuxqmGprqkPIfQ3pgfiL6jSAzobk5SL+R3AqR2/D3Errl6DkdJzuhpnV8v/KITr+P8DwaLGu8ByOEYb5BdfS83CGGJJd0J9CSM+lGmNIRuoThflwgwwTkaoxp3GU4RKtsf7hrvA9fg2VDOHbIXyWwt8P4fs06P1S+GcL+OdD+Gd8+Pc08O/a0N+Xwr/zhh+3gB97gh8/hB8DRh/Hh5+LAT+fBn5OFPy8Nvi5iejzS+HnCMPP84afqw+/3gJ+zQz6uif4tWvw6w/h15DCrwOGX8uNvh4ffk8F+H0x4Pc2gd+fBn6PIfR9ouD3+oLfrw1+zz34fRPh975E378Ufg9a+H2E4feCht/PG35PdvR99eHPRoA/3wL+jBL4c2bMHL+mdVYQ+nlPw0M0Rv7MLgMhGiN97hr82XlGQjRG8vxDMyEaI3eGpaUQjZE5h7T6rXMPJM6SNReiMe3nAQ96nC+n7Uxn/HO58c9WJybIGAnRGCJSo5JnDInfZphGjoMlxgxDQyEak10mzjAc3BPNQWU+25A7s6wv1Kw6pqG9EI3JrBYvMzQZojHJFf9FhqvNEI25pQpfYBj27dM+205X1KJrGNYZSLREzh1/Ttxwftxwftxwftxwftxwfv4zw+WByOI4juM4juM4juM4DhB/AHibhop9lkXiAAAAAElFTkSuQmCC" alt="" />
+            <div className='infoContainer1'>
+              <img src="" alt="" />
+            </div>
+            <div className='infoContainer2'>
+              <img src="" alt="" />
+            </div>
+            <div className='infoContainer3'>
+              <img src="" alt="" />
             </div>
         </div>
     )

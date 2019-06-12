@@ -40,7 +40,6 @@ import {clearStore} from '../redux/reducer'
             {this.props.email ? <Link onClick={this.logOut} to='/' className='list'>Log Out</Link> :
             <Link to='/register' className='list'>Register</Link>}
 
-            <li className='list'>About</li>
         </ul>
 
                    

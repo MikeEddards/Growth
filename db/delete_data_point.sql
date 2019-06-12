@@ -1,0 +1,1 @@
+delete from age_data where data_id = ${data_id};
