@@ -171,62 +171,63 @@ class HeightChart_0_36_boys extends Component {
               
           }
       ]
-      })
-    }
-      ).then(res => {
+      })            
+      return axios.get('/api/alldata')
+      .then(res => {
+          let finder = res.data.map(child => {
+              let index 
+              let find = this.state.dataSet.filter((item, i) =>{
+                   if(item.label === child.first_name){
+                       return index = i
+                   }
+                  }
+              )
 
-          this.loadChild()
-      }).then(res => {
-          this.setState({
-              loading: false
-          })
-      })  
-      
-    }
- loadChild = () => {
-
-    let finder = this.props.ageData.map(child => {
-        let index 
-        let find = this.state.dataSet.filter((item, i) =>{
-             if(item.label === child.first_name){
-                 return index = i
-             }
-            }
-        )
-
-    
-        if((find.length === 0 && child.age <= 3)&&(find.length === 0 && child.sex === 'male')){
+          
+              if((find.length === 0 && child.age <= 3)&&(find.length === 0 && child.sex === 'male')){
            
+                this.setState({
+                    dataSet: [...this.state.dataSet, {
+                        label: child.first_name,
+                        lineTension: .02,
+                        backgroundColor: child.color,
+                        borderColor: child.color,
+                        pointRadius: 3,
+                        fill: false,
+                        data: [
+                                {
+                                x: +child.age * 12,
+                                y: +child.height 
+                                }
+                              ]
+                            }] 
+                        })
+            }
+            else if((find.length !== 0 && child.age <= 3)&&(find.length !== 0 && child.sex === 'male')){
+          
+                const updateDataSet = this.state.dataSet[index].data.push({
+                    x: +child.age * 12,
+                    y: +child.height 
+                });
+                this.setState({
+                    [this.state.dataSet[index].data]: updateDataSet
+                })
+            }
+            
+        })
+          })
+          .then(res => {
             this.setState({
-                dataSet: [...this.state.dataSet, {
-                    label: child.first_name,
-                    lineTension: .02,
-                    backgroundColor: child.color,
-                    borderColor: child.color,
-                    pointRadius: 3,
-                    fill: false,
-                    data: [
-                            {
-                            x: +child.age * 12,
-                            y: +child.height 
-                            }
-                          ]
-                        }] 
-                    })
-        }
-        else if((find.length !== 0 && child.age <= 3)&&(find.length !== 0 && child.sex === 'male')){
-      
-            const updateDataSet = this.state.dataSet[index].data.push({
-                x: +child.age * 12,
-                y: +child.height 
-            });
-            this.setState({
-                [this.state.dataSet[index].data]: updateDataSet
+                loading: false
             })
-        }
+        })  
         
-    })
- }
+    }
+      )}
+    
+
+
+
  
   
       
