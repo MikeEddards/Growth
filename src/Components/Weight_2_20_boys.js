@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Line} from 'react-chartjs-2'
+import { DotLoader } from 'react-spinners'
 import './charts.css'
 
 
@@ -22,6 +23,7 @@ class Weight_2_20_boys extends Component {
             p95: [],
             p97: [],
             dataSet: [],
+            loading: true
             
 
         }
@@ -222,6 +224,10 @@ class Weight_2_20_boys extends Component {
                 })
                  
                     
+            }).then(res => {
+                this.setState({
+                    loading: false
+                })
             })
         
        
@@ -244,6 +250,10 @@ class Weight_2_20_boys extends Component {
        
         return (
             <div className='chartBox'>
+                         {this.state.loading ? <DotLoader
+         size={250}
+         color={'#59F8E8'}
+         /> : 
         <Line
           data={data}
           options={{ maintainAspectRatio: false,
@@ -284,7 +294,7 @@ class Weight_2_20_boys extends Component {
         
           
         />
-        
+    }
         <h1>Weight chart for boys 2-20 years old</h1>
         <div className='cancelButtonBox'>
         <Link to='/charts' className='button'>Back</Link>

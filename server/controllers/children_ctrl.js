@@ -31,6 +31,7 @@ module.exports = {
         }
     },
     addChildData: async (req, res) => {
+        console.log(req.body)
         const {child_id, age, height, weight, head_size, image} = req.body
         const {session} = req
         const db = req.app.get('db')

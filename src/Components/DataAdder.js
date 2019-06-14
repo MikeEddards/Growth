@@ -16,6 +16,8 @@ class DataAdder extends Component {
         super()
         this.state = {
             allData: [],
+            months: null,
+            years: null,
             age: null,
             height: null,
             weight: null,
@@ -95,17 +97,34 @@ try{
     }
     addData = (e) => {
         e.preventDefault()
+        let month = this.state.months / 12
+        let year = this.state.years
+        let newAge = null 
+        if(!year){
+            newAge = +month.toFixed(3)
+        }else if(!month){
+            newAge = +year
+        }else if((year <= 0) && (month <12)){
+            newAge = +month.toFixed(3)
+        }
+        else if((year >= 1) && (month <12)){
+            newAge = +year + +month.toFixed(3)
+        }else if(+month === 0){
+            newAge = 0 
+        }else{
+            newAge = +year
+        }
 
         const {
-            age,
-            height,
+            
+            height, 
             weight,
             head_size,
             image
         } = this.state
         axios.post('/api/adddata', {
             child_id: this.props.match.params.id,
-            age,
+            age: newAge,
             height,
             weight,
             head_size,
@@ -115,10 +134,10 @@ try{
             this.setState({
                 allData: [...this.state.allData, res.data[0]]
             })
-            this.props.history.push('/dashboard')
+        
         })
         .catch((err) => {console.log(err)
-        alert('Incorect Username or Password')})
+        alert('Log In Please')})
         e.target.age = null
         e.target.height = null
         e.target.weight = null
@@ -126,9 +145,14 @@ try{
         this.setState({
             image: ''
         })
+        this.props.history.push('/dashboard')
     }
 
 
+
+
+
+    
     render() {
         return (
           <div className='box' >  
@@ -138,35 +162,7 @@ try{
                 </div>
                 <form className='loginForm' onSubmit={this.addData}>
                     <img className='addedImage' src={this.state.image ? this.state.image : this.state.url} alt=""/>
-                    <input 
-                    className='username'
-                    type="number"
-                    name='age'
-                    placeholder='Age'
-                    onChange={this.handleChange}
-                    />
-                    <input 
-                    className='username'
-                    type="number"
-                    name='height'
-                    placeholder='Height'
-                    onChange={this.handleChange}
-                    />
-                    <input 
-                    className='username'
-                    type="number"
-                    name='weight'
-                    placeholder='Weight'
-                    onChange={this.handleChange}
-                    />
-                    <input 
-                    className='username'
-                    type="number"
-                    name='head_size'
-                    placeholder='Head size'
-                    onChange={this.handleChange}
-                    />
-            <Dropzone
+                    <Dropzone
                 onDropAccepted={this.getSignedRequest}
                 accept="image/*"
                 multiple={false}>
@@ -178,6 +174,51 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                 </div>
             )}
             </Dropzone>  
+
+                    <span className='agebox'>
+                    <input 
+                    className='age'
+                    type="number"
+                    name='years'
+                    placeholder='years'
+                    min='0'
+                    max='20'
+                    onChange={this.handleChange}
+                    />
+                    <input 
+                    className='age'
+                    type="number"
+                    name='months'
+                    placeholder='months'
+                    min='0'
+                    max='12'
+                    onChange={this.handleChange}
+                    />
+                    </span>
+                    <input 
+                    className='username'
+                    type="number"
+                    name='height'
+                    placeholder='Height'
+                    min='0'
+                    onChange={this.handleChange}
+                    />
+                    <input 
+                    className='username'
+                    type="number"
+                    name='weight'
+                    placeholder='Weight'
+                    min='0'
+                    onChange={this.handleChange}
+                    />
+                    <input 
+                    className='username'
+                    type="number"
+                    name='head_size'
+                    placeholder='Head size'
+                    min='0'
+                    onChange={this.handleChange}
+                    />
 
                     
                     <button onClick={this.addData} className='button'>Add Data</button>

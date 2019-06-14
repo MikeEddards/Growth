@@ -3,11 +3,13 @@ const initialState = {
         first_name: '',
         last_name: '',
         image: '',
-        children: []
+        children: [],
+        ageData: [],
 }
 const UPDATE_USER = 'UPDATE_USER'
 const GET_CHILDREN = 'GET_CHILDREN'
 const CLEAR_STORE = 'CLEAR_STORE'
+const ADD_AGE_DATA = 'ADD_AGE_DATA'
 
 export function updateUser(user){
     return {
@@ -26,6 +28,12 @@ export function clearStore(){
         type: CLEAR_STORE
     }
 }
+export function addAgeData(data){
+    return {
+        type: ADD_AGE_DATA,
+        payload: data
+    }
+}
 
 function reducer (state = initialState, action){
     switch (action.type){
@@ -41,7 +49,13 @@ function reducer (state = initialState, action){
 
             return{
                 ...initialState
-            }       
+            }
+        case ADD_AGE_DATA:
+           console.log(action.payload)
+            return {
+                ...state,
+                ageData: action.payload
+            }           
         default:
             return state    
     }

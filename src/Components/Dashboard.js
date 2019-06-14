@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
-import { updateUser} from '../redux/reducer'
+import { updateUser, addAgeData} from '../redux/reducer'
 import ChildList from './ChildList'
 import {Link} from 'react-router-dom'
 import './dashBoard.css'
@@ -12,16 +12,22 @@ class  Dashboard extends Component  {
     
 
     componentDidMount(){
+        
         axios.get('/auth/userinfo')
         .then(res => {
             this.props.updateUser(res.data)    
         })
         .catch(err => this.props.history.push('/') )
+
+        axios.get('/api/alldata')
+        .then(res => {
+            this.props.addAgeData(res.data)
+        })
     }
 
 
    render(){
-    
+    console.log(this.props.ageData)
     const {first_name, last_name, image} = this.props
 
     return (
@@ -43,4 +49,4 @@ function mapStateToProps(state){
     return state
 }
 
-export default connect(mapStateToProps, {updateUser})(Dashboard)
+export default connect(mapStateToProps, {updateUser, addAgeData})(Dashboard)

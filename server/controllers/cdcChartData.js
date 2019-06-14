@@ -2,6 +2,7 @@ module.exports ={
     boyHeight_0_36: async (req, res) => {
         const db = req.app.get('db')
         const data = await db.select_0_36_height_boys()
+        
         res.status(200).send(data)
     },
     girlHeight_0_36: async (req, res) => {

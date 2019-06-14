@@ -16,6 +16,8 @@ class UpdateData extends Component {
         super()
         this.state = {
             allData: [],
+            months: null,
+            years: null,
             age: null,
             height: null,
             weight: null,
@@ -80,16 +82,34 @@ async componentDidMount(){
     }
     addData = (e) => {
         e.preventDefault()
+        let month = this.state.months / 12
+        let year = this.state.years
+        let newAge = null
+        if(!year){
+            newAge = +month.toFixed(3)
+        }else if(!month){
+            newAge = +year
+        }else if((year <= 0) && (month <12)){
+            newAge = +month.toFixed(3)
+        }
+        else if((year >= 1) && (month <12)){
+            newAge = +year + +month.toFixed(3)
+        }else if(+month === 0){
+            newAge = 0 
+        }else{
+            newAge = +year
+        }
+
 
         const {
-            age,
+          
             height,
             weight,
             head_size,
             image
         } = this.state
         axios.put(`/api/updatedata/${this.props.match.params.id}`, {
-            age: age,
+            age: newAge,
             height: +height || null,
             weight: +weight || null,
             head_size: +head_size || null,
@@ -127,39 +147,7 @@ async componentDidMount(){
                 </div>
                 <form className='dataForm' onSubmit={this.addData}>
                     <img className='addedImage' src={this.state.image} alt=""/>
-                    <h4>Age</h4>
-                    <input 
-                    className='username'
-                    type="number"
-                    name='age'
-                    placeholder={this.state.age}
-                    onChange={this.handleChange}
-                    />
-                    <h4>Height</h4>
-                    <input 
-                    className='username'
-                    type="number"
-                    name='height'
-                    placeholder={this.state.height}
-                    onChange={this.handleChange}
-                    />
-                    <h4>Weight</h4>
-                    <input 
-                    className='username'
-                    type="number"
-                    name='weight'
-                    placeholder={this.state.weight}
-                    onChange={this.handleChange}
-                    />
-                    <h4>Head size</h4>
-                    <input 
-                    className='username'
-                    type="number"
-                    name='head_size'
-                    placeholder={this.state.head_size}
-                    onChange={this.handleChange}
-                    />
-            <Dropzone
+                    <Dropzone
                 onDropAccepted={this.getSignedRequest}
                 accept="image/*"
                 multiple={false}>
@@ -171,6 +159,54 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                 </div>
             )}
             </Dropzone>  
+                    <span className='agebox'>
+                    <input 
+                    className='age'
+                    type="number"
+                    name='years'
+                    placeholder='years'
+                    min='0'
+                    max='20'
+                    onChange={this.handleChange}
+                    />
+                    <input 
+                    className='age'
+                    type="number"
+                    name='months'
+                    placeholder='months'
+                    min='0'
+                    max='12'
+                    onChange={this.handleChange}
+                    />
+                    </span>
+                    <h4>Height</h4>
+                    <input 
+                    className='username'
+                    type="number"
+                    name='height'
+                    min='0'
+                    placeholder={this.state.height}
+                    onChange={this.handleChange}
+                    />
+                    <h4>Weight</h4>
+                    <input 
+                    className='username'
+                    type="number"
+                    name='weight'
+                    min='0'
+                    placeholder={this.state.weight}
+                    onChange={this.handleChange}
+                    />
+                    <h4>Head size</h4>
+                    <input 
+                    className='username'
+                    type="number"
+                    name='head_size'
+                    min='0'
+                    placeholder={this.state.head_size}
+                    onChange={this.handleChange}
+                    />
+
 
                     
                     <button onClick={this.addData} className='button'>Update Data</button>

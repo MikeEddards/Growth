@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import {Line, defaults, Scatter } from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
+import { DotLoader } from 'react-spinners'
 import './charts.css'
 
-// defaults.global.maintainAspectRatio = false
+
 
 class Height_2_20_boys extends Component {
     constructor(){
@@ -22,6 +23,7 @@ class Height_2_20_boys extends Component {
             p95: [],
             p97: [],
             dataSet: [],
+            loading: true
             
 
         }
@@ -222,6 +224,10 @@ class Height_2_20_boys extends Component {
                 })
                  
                     
+            }).then(res => {
+                this.setState({
+                    loading: false
+                })
             })
         
        
@@ -244,6 +250,10 @@ class Height_2_20_boys extends Component {
        
         return (
             <div className='chartBox'>
+         {this.state.loading ? <DotLoader
+         size={250}
+         color={'#59F8E8'}
+         /> :       
         <Line
           data={data}
           options={{ maintainAspectRatio: false,
@@ -284,6 +294,7 @@ class Height_2_20_boys extends Component {
         
           
         />
+    }
         <p>*Measurements are in inches</p>
         <h1>Height chart for boys 2-20 years old</h1>
         <div className='cancelButtonBox'>
