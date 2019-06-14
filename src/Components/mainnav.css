@@ -57,3 +57,13 @@ nav{
     font-style: italic;
 
 }
+@media (max-width: 768px){
+    .title{
+        font-size: 1.5em;
+    }
+    .list{
+        margin: 0 40px;
+        padding: 3px 8px;
+
+    }
+}

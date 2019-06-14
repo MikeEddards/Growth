@@ -19,15 +19,11 @@ class  Dashboard extends Component  {
         })
         .catch(err => this.props.history.push('/') )
 
-        axios.get('/api/alldata')
-        .then(res => {
-            this.props.addAgeData(res.data)
-        })
     }
 
 
    render(){
-    console.log(this.props.ageData)
+   
     const {first_name, last_name, image} = this.props
 
     return (

@@ -12,8 +12,7 @@
     height: 60vh;
     width: 51vw;
     background: #F9FAFB;
-    box-shadow: 8px 8px 6px -6px #304246,
-    -8px -8px 6px #fff ;
+    box-shadow: 8px 8px 6px -6px #304246;
      margin-top: 1em;
      display: flex;
      justify-content: space-evenly;
@@ -42,4 +41,23 @@
 .childPic{
     box-shadow: 8px 8px 6px -6px #304246;
     max-height: 14vh;
+}
+@media (max-width: 1024px){
+    .name{
+        font-size: 1rem
+    }
+    .colorDisplay{
+        padding: 3px 8px;
+    }
+    .button{
+        padding: 3px 8px;
+    }
+}
+@media (max-width: 768px){
+    .childPic{
+
+        max-height: 14vh;
+        max-width: 5vw;
+    }
+    
 }

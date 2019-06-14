@@ -2,8 +2,7 @@
     height: 60vh;
     width: 30vw;
     background: #F9FAFB;
-    box-shadow: 8px 8px 6px -6px #304246,
-    -8px -8px 6px #fff ;
+    box-shadow: 8px 8px 6px -6px #304246;
      margin-top: 1em;
      display: flex;
      justify-content: space-evenly;
@@ -47,4 +46,14 @@
     justify-content: space-evenly;
     align-items: center;
     background: #F9FAFB;
+}
+@media (max-width: 768px){
+    .maindash{
+        flex-direction: column;
+    }
+    .profilePic{
+        max-width: 15vw;
+        max-height: 15vh;
+
+    }
 }

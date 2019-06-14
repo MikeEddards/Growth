@@ -44,3 +44,8 @@
     background: #304246;
     
 }
+@media (max-width: 1024px){
+    .button{
+        padding: 2px 8px;
+    }
+}
