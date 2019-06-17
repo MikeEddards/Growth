@@ -55,15 +55,15 @@ h1 {
         flex-direction: column;
     }
     .container{
-        height: 70vh;
-        width: 30vw;
+        height: 50vh;
+        width: 50vw;
         background: #F9FAFB;
         box-shadow: 8px 8px 6px -6px #304246 ;
         margin-top: 3em;
         
     }
     .button{
-        padding: 0;
+        padding: 5px;
     }
 }
 @media (max-width: 768px){

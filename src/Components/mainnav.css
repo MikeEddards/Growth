@@ -1,10 +1,10 @@
 nav{
-    z-index: 1;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 12vh;
+    width: 100vw;
     background: #20A4F3;
     margin-bottom: 6px;
     box-shadow: 0 8px 6px -6px #304246;
@@ -16,10 +16,11 @@ nav{
     justify-content: space-evenly;
     align-items: center;
     width: 50vw;
+    margin-left: 20vw;
 }
 .logo{
     height: 8vh;
-    margin-left: 100px;
+    
     padding: 5px;
     background: #F9FAFB;
     border-radius: 10px;
@@ -30,9 +31,6 @@ nav{
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-    
-    
- 
 }
 .list{
     margin: 0 40px;
@@ -55,15 +53,90 @@ nav{
     color: #304246;
     font-size: 2.5em;
     font-style: italic;
+    width: 50vw;
+    margin-left: 10vw;
 
 }
-@media (max-width: 768px){
+
+.show{
+    background: #20A4F3;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 8px 6px -6px #304246;
+    width: 100vw;
+    height: 10vh;
+    transform: translateY(-6px);
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+.noShow{
+    transform: translateX(3000px);
+    /* transform: translateY(-27px); */
+    background: #20A4F3;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 8px 6px -6px #304246;
+    width: 100vw;
+    height: 10vh;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+.menu{
+    border-bottom: 3px solid #F9FAFB; 
+    width: 3vw;
+    height: 1px;
+    cursor: pointer;
+}
+.menuBox{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 3vh;
+    width: 4vw;
+    cursor: pointer;
+    margin-right: 10vw;
+    background: #304246;
+    box-shadow: 0 8px 6px -6px #304246;
+    border-radius: 3px;
+    transition: all 300ms ease-in-out;
+}
+.menuBox:hover, .menu:hover{
+    background: #59F8E8;
+    
+}
+
+@media (max-width: 983px){
     .title{
         font-size: 1.5em;
     }
+}
+
+@media (max-width: 768px){
+
     .list{
         margin: 0 40px;
         padding: 3px 8px;
 
     }
+}
+@media (max-width: 738px){
+    .title{
+        font-size: 1.4em;
+    }
+}
+@media (max-width: 425px){
+    .title{
+        font-size: 1em;
+    }
+    .logo{
+        height: 5vh;
+        margin-left: 0;
+    }
+
+    
 }
