@@ -260,7 +260,7 @@ class Height_2_20_boys extends Component {
             
             legend: {
                 display: true,
-                position: 'right',
+                position: 'bottom',
                 labels: {
                     fontColor: '#304246',
                     fontFamily: 'Mada',

@@ -1,18 +1,18 @@
 .switch{
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-family: 'Mada', sans-serif;
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246;
 }
 .default{
     text-align: center;
     padding: 5px 10px;
-    width: 5vw;
+    width: 10vw;
     background: #20A4F3;
     cursor: pointer;
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246;
     color: #304246;
     animation: 300ms linear 0s 1 alternate selected;
     transition: 300ms ease-in 0s 1 unselected;
@@ -21,9 +21,9 @@
     text-align: center;
     background: #B15967;
     padding: 5px 10px;
-    width: 5vw;
+    width: 10vw;
     cursor: pointer;
-    border: 1px solid #304246;
+    box-shadow: 8px 8px 6px -6px #304246;
     color: #F9FAFB;
     transition: 300ms ease-in 0s 1 selected;
     transition: 300ms ease-in 0s 1 unselected;
@@ -48,5 +48,11 @@
     to {
         background: #B15967;
         color: #304246;
+    }
+}
+
+@media (max-width: 568px){
+    .switch h3{
+        font-size: .7em;
     }
 }

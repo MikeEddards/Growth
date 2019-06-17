@@ -10,16 +10,27 @@ class Login extends Component {
         super()
         this.state = {
             username: '',
-            password: ''        }
+            password: '',
+            slide: 'noContainer'
+        }
+    }
+    componentDidMount(){
+       this.time()
+    }
+    slideIn = () => {
+        this.setState({
+            slide: 'container'
+        })
     }
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+    time = () => setInterval(this.slideIn,200)
+
     userLogin = (e) => {
         e.preventDefault()
-      
         const {username, password} = this.state
         axios.post('/auth/login', {username, password})
         .then(res => this.props.history.push('/dashboard'))
@@ -33,7 +44,7 @@ class Login extends Component {
     render() {
         return (
           <div className='box' >  
-            <div className='container'>
+            <div className={this.state.slide}>
                 <div className='logInTitle'>
                     <h1>Log In</h1>
                 </div>

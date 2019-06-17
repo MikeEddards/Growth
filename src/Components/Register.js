@@ -8,14 +8,24 @@ class Register extends Component {
             password: '',
             email: '',
             first_name: '',
-            last_name: ''
+            last_name: '',
+            slide: 'noContainer'
         }
+    }
+    componentDidMount(){
+        this.time()
+     }
+     slideIn = () => {
+        this.setState({
+            slide: 'container'
+        })
     }
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+    time = () => setInterval(this.slideIn,200)
     register = (e) => {
         e.preventDefault()
         
@@ -29,7 +39,7 @@ class Register extends Component {
     }
     render() {
         return (
-            <div className='container'>
+            <div className={this.state.slide}>
                 <div className='logInTitle'>
                     <h1>Register</h1>
                 </div>

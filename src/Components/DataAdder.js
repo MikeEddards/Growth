@@ -25,12 +25,14 @@ class DataAdder extends Component {
             image: '',
             url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg',
             isUploading: false,
-            isMonths: false
+            isMonths: false,
+            slide: 'noContainer',
+            dataSlide: 'noContainer'
             
         }
     }
 async componentDidMount(){
-
+    this.time()
   const res = await axios.get(`/api/childdata/${this.props.match.params.id}`) 
 try{
   dataSet = await res.data.map(child => (
@@ -38,7 +40,10 @@ try{
           <div className='h3'>
           {child.image && <img className='dataPic' src={child.image} /> }
           </div>
-          {child.age && <h3 className='h3'>{child.age}</h3>}
+          <div className='ageh3'>
+            {child.age && <h3 >
+            {child.age}</h3>}
+          </div>
           {child.height && <h3 className='h3'>{child.height}</h3>}
           {child.weight && <h3 className='h3'>{child.weight}</h3>}
           {child.head_size ? <h3 className='h3'>{child.head_size}</h3> :
@@ -55,6 +60,7 @@ try{
             this.props.history.push('/')
         }
 }
+
  
     getSignedRequest = ([file]) => {
     this.setState({isUploading: true})
@@ -148,7 +154,13 @@ try{
         this.props.history.push('/dashboard')
     }
 
-
+    slideIn = () => {
+        this.setState({
+            slide: 'dataBox',
+            dataSlide: 'dataContainer'
+        })
+    }
+    time = () => setInterval(this.slideIn,200)
 
 
 
@@ -156,11 +168,11 @@ try{
     render() {
         return (
           <div className='box' >  
-            <div className='container'>
+            <div className={this.state.slide}>
                 <div className='logInTitle'>
                     <h1>Add Data</h1>
                 </div>
-                <form className='loginForm' onSubmit={this.addData}>
+                <form className='addDataForm' onSubmit={this.addData}>
                     <img className='addedImage' src={this.state.image ? this.state.image : this.state.url} alt=""/>
                     <Dropzone
                 onDropAccepted={this.getSignedRequest}
@@ -226,7 +238,7 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                 </form>
             </div>
             
-                <div className='dataContainer'>
+                <div className={this.state.dataSlide}>
                 <div className='dataSet'>
                         
                     <h3 className='h3'>Image</h3>
@@ -234,6 +246,7 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                     <h3 className='h3'>Height</h3>
                     <h3 className='h3'>Weight</h3>
                     <h3 className='h3'>Head size</h3>
+                    <span className='empty'></span>
                 </div>         
                 <dir className='displayData'>           
                     {dataSet}

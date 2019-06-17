@@ -244,7 +244,7 @@ class HeightChart_0_36_girls extends Component {
             
             legend: {
                 display: true,
-                position: 'right',
+                position: 'bottom',
                 labels: {
                     fontColor: '#304246',
                     fontFamily: 'Mada',

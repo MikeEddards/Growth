@@ -19,12 +19,13 @@ class ChildEdit extends Component {
             image: '',
             child_id: null,
             isUploading: false,
-            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'
+            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg',
+            slide: 'noContainer'
 
         }
     }
     componentDidMount(){
-        
+        this.time()
         return axios.get(`/api/getchildinfo/${this.props.match.params.id}`)
         .then(res => {
           
@@ -110,7 +111,12 @@ getSignedRequest = ([file]) => {
      .then(res => console.log(res.status))  
     }
 
-
+    slideIn = () => {
+        this.setState({
+            slide: 'container'
+        })
+    }
+    time = () => setInterval(this.slideIn,200)
 
 
 
@@ -120,7 +126,7 @@ getSignedRequest = ([file]) => {
 
         return (
           <div className='box' >  
-            <div className='container'>
+            <div className={this.state.slide}>
                 <div className='logInTitle'>
                     <h1>Edit</h1>
                 </div>

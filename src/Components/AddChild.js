@@ -17,10 +17,20 @@ class AddChild extends Component {
             image: '',
             isUploading: false,
             checked: true,
-            style: true
+            style: true,
+            slide: 'noContainer'
          
         }
     }
+    componentDidMount(){
+        this.time()
+    }
+    slideIn = () => {
+        this.setState({
+            slide: 'container'
+        })
+    }
+    time = () => setInterval(this.slideIn,200)
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -86,7 +96,7 @@ class AddChild extends Component {
 render() {
  
     return (
-        <div className='container'>
+        <div className={this.state.slide}>
             <div className='logInTitle'>
                 <h1>Add Data</h1>
             </div>

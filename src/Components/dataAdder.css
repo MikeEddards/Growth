@@ -10,6 +10,24 @@
     align-items: center;
     flex-direction: column;
     overflow-y: auto;   
+    transition: all 700ms cubic-bezier(0.88, 0.11, 0.38, 1.31);
+}
+.addDataForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+.dataBox{
+    height: 65vh;
+    width: 30vw;
+    background: #F9FAFB;
+    box-shadow: 8px 8px 6px -6px #304246 ;
+    margin-top: 4em;
+    transition: all 700ms cubic-bezier(0.88, 0.11, 0.38, 1.31);
+    
 }
 .dataContainer::-webkit-scrollbar{
     width: 6px;
@@ -20,7 +38,6 @@
 }
 
 .data{
-    
     width:  48vw;
     height: 18vh;
     display: flex;
@@ -30,10 +47,11 @@
     box-shadow: 8px 8px 6px -6px #304246;
     color: #304246;
     margin-right: 5vh;
+
 }
 .dataSet{
-   text-align: center;
-    width:  38vw;
+    text-align: center;
+    width:  48vw;
     height: 5vh;
     display: flex;
     justify-content: center;
@@ -41,8 +59,12 @@
     font-family: 'Mada', sans-serif;
     color: #304246; 
     margin-top: 3vh;
- 
-    
+    margin-bottom: 5vh;
+    box-shadow: 8px 8px 6px -6px #304246;   
+}
+.empty{
+    width: 20vw;
+    height: 5vh;
 }
 .dataPic{
     border: 1px solid #304246;
@@ -56,13 +78,17 @@
     border: 1px solid #304246;
     max-height: 8vh;
 }
+.ageh3{
+    width: 5vw;
+    margin-left: 7vw;  
+}
 .displayData .h3 {
     width: 5vw;
 }
 .dataSet .h3{
     width: 30%;
     margin-bottom: 5vh;
-    margin-right: 2vw;
+    margin-left: 2vw;
 }
 .displayData{
     width:  40vw;
@@ -78,7 +104,7 @@
 .age{
     border: 1px solid #304246;
     height: 3vh;
-    width: 4vw;
+    width: 10vw;
     text-align: center;
     color: #304246;
     border-radius: 4px;
@@ -94,5 +120,41 @@
 @media (max-width: 1024px){
     .addedImage{
         max-height: 10vh;
+        max-width: 10vw;
     }
+    h3{
+        font-size: 1em;
+    }
+    .data{
+        flex-wrap: wrap;
+    }
+    .dataContainer{
+        width: 80vw;
+    }
+    .dataBox{
+        width: 80vw;
+    }
+
+}
+@media (max-width: 660px){
+    .dataSet{
+        margin-bottom: 0;
+        width: 79vw;
+    }
+    h3{
+        font-size: .6em;
+    }
+    .data .button{
+        padding: 1px 5px;
+        font-size: .5em;
+        margin: 2px 200px;
+    }
+    .data {
+        width: 79vw;
+    }
+    .age{
+        width: 40vw;
+    }
+    
+
 }

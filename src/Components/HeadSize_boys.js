@@ -243,7 +243,7 @@ class HeadSize_0_36_boys extends Component {
             
             legend: {
                 display: true,
-                position: 'right',
+                position: 'bottom',
                 labels: {
                     fontColor: '#304246',
                     fontFamily: 'Mada',

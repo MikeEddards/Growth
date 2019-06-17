@@ -10,9 +10,15 @@ import './childList.css'
 let childList
 
 class ChildList extends Component {
-
+    constructor(){
+        super()
+        this.state = {
+            slide: 'noContainer'
+        }
+    }
 
 async componentDidMount(){
+    this.time()
     const children = await axios.get('/api/getchildren')
     this.props.getChildren(children.data)
      childList = await this.props.children.map((child, i)=>(
@@ -26,13 +32,18 @@ async componentDidMount(){
     ))
     return childList
     }
-
+    slideIn = () => {
+        this.setState({
+            slide: 'childbox'
+        })
+    }
+    time = () => setInterval(this.slideIn,200)
     render() {
         
 
 
         return (
-            <div className='childbox'>
+            <div className={this.state.slide}>
                 {childList}
             </div>
         )

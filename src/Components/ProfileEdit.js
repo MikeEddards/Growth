@@ -19,12 +19,13 @@ class ProfileEdit extends Component {
             last_name: '',
             image: '',
             isUploading: false,
-            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'
+            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg',
+            slide: 'noContainer'
         }
     }  
 
     componentDidMount(){
-        
+        this.time()
         return axios.get('/auth/user')
         .then(res => {
        
@@ -35,6 +36,12 @@ class ProfileEdit extends Component {
             
         })
     }
+    slideIn = () => {
+        this.setState({
+            slide: 'containerEdit'
+        })
+    }
+    time = () => setInterval(this.slideIn,200)
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -109,7 +116,7 @@ getSignedRequest = ([file]) => {
     render() {
         return (
             <div className='box' >  
-            <div className='container'>
+            <div className={this.state.slide}>
                 <div className='logInTitle'>
                     <h1>Edit</h1>
                 </div>

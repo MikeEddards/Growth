@@ -13,13 +13,19 @@ class InfoSplash extends Component {
           super()
           this.state ={
               image: Headsize,
-              style: 'infoContainer',
               allImages: [Weight, Height, Headsize],
-              counter: 0
+              counter: 0,
+              slide: 'noContainer'
           }
         }
 componentDidMount(){
+  this.time()
   this.nextPic()
+}
+slideIn = () => {
+  this.setState({
+      slide: 'infoContainer'
+  })
 }
 
   picChanger = () => {
@@ -39,6 +45,7 @@ componentDidMount(){
       })
     }
   }
+  time = () => setInterval(this.slideIn,200)
   nextPic = () => setInterval(this.picChanger,4000)
         
   render(){
@@ -52,7 +59,7 @@ componentDidMount(){
        
           <div>
             
-            <div className={this.state.style}>
+            <div className={this.state.slide}>
               <img src={this.state.image} alt="" />
               <h1>Track your childs growth from birth</h1>
             </div>

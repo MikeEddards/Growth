@@ -9,10 +9,15 @@ import './dashBoard.css'
 
 
 class  Dashboard extends Component  {
-    
+    constructor(){
+        super()
+        this.state = {
+            slide: 'noContainer'
+        }
+    }
 
     componentDidMount(){
-        
+        this.time()
         axios.get('/auth/userinfo')
         .then(res => {
             this.props.updateUser(res.data)    
@@ -20,15 +25,19 @@ class  Dashboard extends Component  {
         .catch(err => this.props.history.push('/') )
 
     }
-
-
+    slideIn = () => {
+        this.setState({
+            slide: 'userContainer'
+        })
+    }
+    time = () => setInterval(this.slideIn,200)
    render(){
    
     const {first_name, last_name, image} = this.props
 
     return (
         <div className='maindash'>
-            <div className='userContainer'>
+            <div className={this.state.slide}>
                 <img className='profilePic' src={image ? image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkur8aZm5BZJMaT-KdzNPHsZVoNyUkOfJ36WnXJskQJyFYGuOZYg'} alt="" />
                 <h2 className='name'>{first_name} {last_name}</h2>
                 <Link to='/addchild' className='button'>Add Child</Link>

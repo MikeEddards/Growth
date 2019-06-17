@@ -262,7 +262,7 @@ class HeightChart_0_36_boys extends Component {
             maintainAspectRatio: false,
             legend: {
                 display: true,
-                position: 'right',
+                position: 'bottom',
                 labels: {
                     fontColor: '#304246',
                     fontFamily: 'Mada',
