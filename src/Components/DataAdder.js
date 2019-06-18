@@ -27,7 +27,9 @@ class DataAdder extends Component {
             isUploading: false,
             isMonths: false,
             slide: 'noContainer',
-            dataSlide: 'noContainer'
+            dataSlide: 'noContainer',
+            disableYear: false,
+            disableMonth: false
             
         }
     }
@@ -36,7 +38,7 @@ async componentDidMount(){
   const res = await axios.get(`/api/childdata/${this.props.match.params.id}`) 
 try{
   dataSet = await res.data.map(child => (
-      <div className='data' key={child.data_id}>
+      <li className='data' key={child.data_id}>
           <div className='h3'>
           {child.image && <img className='dataPic' src={child.image} /> }
           </div>
@@ -50,7 +52,7 @@ try{
          <h3 className='h3'>none</h3> }
          <Link className='button' to={`/dataedit/${child.child_id}${child.data_id}`} >Edit</Link>
 
-      </div>
+      </li>
   ))
         this.setState({
             allData: res.data 
@@ -97,29 +99,30 @@ try{
     }
 
     handleChange = (e) => {
+
         this.setState({
             [e.target.name]: e.target.value
         })
     }
     addData = (e) => {
         e.preventDefault()
-        let month = this.state.months / 12
-        let year = this.state.years
+
         let newAge = null 
-        if(!year){
-            newAge = +month.toFixed(3)
-        }else if(!month){
-            newAge = +year
-        }else if((year <= 0) && (month <12)){
-            newAge = +month.toFixed(3)
+
+        if(this.state.months && !this.state.years){
+            this.setState({
+                disableYear: true
+            })
+            let age = this.state.months / 12
+            newAge = age.toFixed(3)
+        }else if(this.state.years && !this.state.months){
+            this.setState({
+                disableMonth: true
+            })
+            newAge = this.state.years
         }
-        else if((year >= 1) && (month <12)){
-            newAge = +year + +month.toFixed(3)
-        }else if(+month === 0){
-            newAge = 0 
-        }else{
-            newAge = +year
-        }
+
+
 
         const {
             
@@ -193,17 +196,20 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                     type="number"
                     name='years'
                     placeholder='years'
+                    disabled={this.state.disableYear}
                     min='0'
                     max='20'
                     onChange={this.handleChange}
                     />
+                    <h4>OR</h4>
                     <input 
                     className='age'
                     type="number"
                     name='months'
                     placeholder='months'
+                    disabled={this.state.disableMonth}
                     min='0'
-                    max='12'
+                    max='36'
                     onChange={this.handleChange}
                     />
                     </span>
@@ -247,10 +253,11 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                     <h3 className='h3'>Weight</h3>
                     <h3 className='h3'>Head size</h3>
                     <span className='empty'></span>
-                </div>         
-                <dir className='displayData'>           
+                </div> 
+               
+                <ul className='displayData'>           
                     {dataSet}
-                </dir>         
+                </ul>         
                         
              </div>           
         </div>

@@ -46,16 +46,16 @@ class HeadSize_0_36_boys extends Component {
             let sort = this.state.heightBirth.map((num)=>{
                 this.setState({
                     Agemos: [...this.state.Agemos, num.Agemos],
-                    p3: [...this.state.p3, +num.p3 ],
-                    p5: [...this.state.p5, +num.p5 ],
-                    p10: [...this.state.p10, +num.p10],
-                    p25: [...this.state.p25, +num.p25],
-                    p50: [...this.state.p50, +num.p50 ],
-                    p75: [...this.state.p75, +num.p75 ],
-                    p90: [...this.state.p90, +num.p90 ],
-                    p95: [...this.state.p95, +num.p95 ],
-                    p97: [...this.state.p97, +num.p97 ]
-                   })
+                    p3: [...this.state.p3, num.p3 / 2.54  ],
+                    p5: [...this.state.p5, num.p5 / 2.54  ],
+                    p10: [...this.state.p10, num.p10 / 2.54],
+                    p25: [...this.state.p25, num.p25 / 2.54],
+                    p50: [...this.state.p50, num.p50 / 2.54],
+                    p75: [...this.state.p75, num.p75 / 2.54],
+                    p90: [...this.state.p90, num.p90 / 2.54],
+                    p95: [...this.state.p95, num.p95 / 2.54],
+                    p97: [...this.state.p97, num.p97 / 2.54]
+                    })
             })
         })
         .then(res => {
@@ -174,7 +174,7 @@ class HeadSize_0_36_boys extends Component {
 
                 
                     if((find.length === 0 && child.age <= 3)&&(find.length === 0 && child.sex === 'male')){
-                       
+                        let newAge = +child.age * 12
                         this.setState({
                             dataSet: [...this.state.dataSet, {
                                 label: child.first_name,
@@ -185,18 +185,18 @@ class HeadSize_0_36_boys extends Component {
                                 fill: false,
                                 data: [
                                         {
-                                        x: +child.age * 12,
-                                        y: +child.head_size * 2.54 
+                                        x: +newAge.toFixed(2),
+                                        y: +child.head_size 
                                         }
                                       ]
                                     }] 
                                 })
                     }
                     else if((find.length !== 0 && child.age <= 3)&&(find.length !== 0 && child.sex === 'male')){
-                  
+                        let age = +child.age * 12
                         const updateDataSet = this.state.dataSet[index].data.push({
-                            x: +child.age * 12,
-                            y: +child.head_size * 2.54
+                            x: +age.toFixed(2),
+                            y: +child.head_size
                         });
                         this.setState({
                             [this.state.dataSet[index].data]: updateDataSet
@@ -225,7 +225,7 @@ class HeadSize_0_36_boys extends Component {
        const data = {
            labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],
            xAxisId: 'Age in months',
-           yAxisId: 'Head size in cm',
+           yAxisId: 'Head size in inches',
            datasets: this.state.dataSet
            
            
@@ -263,7 +263,7 @@ class HeadSize_0_36_boys extends Component {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Head size in cm'
+                        labelString: 'Head size in inches'
                     }
                 }]    
                 }

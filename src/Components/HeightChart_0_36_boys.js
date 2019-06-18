@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Line} from 'react-chartjs-2'
 import { DotLoader } from 'react-spinners'
-import {connect} from 'react-redux'
+
 import './charts.css'
 
 
@@ -185,7 +185,7 @@ class HeightChart_0_36_boys extends Component {
 
           
               if((find.length === 0 && child.age <= 3)&&(find.length === 0 && child.sex === 'male')){
-           
+                let newAge = +child.age * 12
                 this.setState({
                     dataSet: [...this.state.dataSet, {
                         label: child.first_name,
@@ -196,7 +196,7 @@ class HeightChart_0_36_boys extends Component {
                         fill: false,
                         data: [
                                 {
-                                x: +child.age * 12,
+                                x: +newAge.toFixed(2),
                                 y: +child.height 
                                 }
                               ]
@@ -204,9 +204,9 @@ class HeightChart_0_36_boys extends Component {
                         })
             }
             else if((find.length !== 0 && child.age <= 3)&&(find.length !== 0 && child.sex === 'male')){
-          
+                let age = +child.age * 12
                 const updateDataSet = this.state.dataSet[index].data.push({
-                    x: +child.age * 12,
+                    x: +age.toFixed(2),
                     y: +child.height 
                 });
                 this.setState({
@@ -236,7 +236,6 @@ class HeightChart_0_36_boys extends Component {
 
 
     render() {
-      
 
        const data = {
            labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],
@@ -302,8 +301,5 @@ class HeightChart_0_36_boys extends Component {
     }
 }
 
-function mapStateToProps(state){
-    return state
-}
 
-export default connect(mapStateToProps)(HeightChart_0_36_boys)
+export default HeightChart_0_36_boys

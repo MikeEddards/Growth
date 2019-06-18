@@ -82,23 +82,22 @@ async componentDidMount(){
     }
     addData = (e) => {
         e.preventDefault()
-        let month = this.state.months / 12
-        let year = this.state.years
+
         let newAge = null
-        if(!year){
-            newAge = +month.toFixed(3)
-        }else if(!month){
-            newAge = +year
-        }else if((year <= 0) && (month <12)){
-            newAge = +month.toFixed(3)
+
+        if(this.state.months && !this.state.years){
+            this.setState({
+                disableYear: true
+            })
+            let age = this.state.months / 12
+            newAge = age.toFixed(3)
+        }else if(this.state.years && !this.state.months){
+            this.setState({
+                disableMonth: true
+            })
+            newAge = this.state.years
         }
-        else if((year >= 1) && (month <12)){
-            newAge = +year + +month.toFixed(3)
-        }else if(+month === 0){
-            newAge = 0 
-        }else{
-            newAge = +year
-        }
+
 
 
         const {
@@ -169,6 +168,7 @@ color={'#304246'} /> : <span className='button'>Upload Picture</span>}
                     max='20'
                     onChange={this.handleChange}
                     />
+                    <h4>OR</h4>
                     <input 
                     className='age'
                     type="number"

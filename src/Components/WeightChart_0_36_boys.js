@@ -175,7 +175,7 @@ class WeightChart_0_36_boys extends Component {
 
                 
                     if((find.length === 0 && child.age <= 3)&&(find.length === 0 && child.sex === 'male')){
-                       
+                        let newAge = +child.age * 12
                         this.setState({
                             dataSet: [...this.state.dataSet, {
                                 label: child.first_name,
@@ -186,7 +186,7 @@ class WeightChart_0_36_boys extends Component {
                                 fill: false,
                                 data: [
                                         {
-                                        x: +child.age * 12,
+                                        x: +newAge.toFixed(2),
                                         y: +child.weight 
                                         }
                                       ]
@@ -194,9 +194,9 @@ class WeightChart_0_36_boys extends Component {
                                 })
                     }
                     else if((find.length !== 0 && child.age <= 3)&&(find.length !== 0 && child.sex === 'male')){
-                  
+                        let age = +child.age * 12
                         const updateDataSet = this.state.dataSet[index].data.push({
-                            x: +child.age * 12,
+                            x: +age.toFixed(2),
                             y: +child.weight 
                         });
                         this.setState({
