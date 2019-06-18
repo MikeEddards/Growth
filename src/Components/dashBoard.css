@@ -46,6 +46,7 @@
     justify-content: space-evenly;
     align-items: center;
     background: #F9FAFB;
+    overflow: auto;
 }
 @media (max-width: 1024px){
     .maindash{

@@ -16,7 +16,7 @@
     transition: all 700ms cubic-bezier(0.88, 0.11, 0.38, 1.31); 
 }
 .noContainer{
-    transform: translateY(-4000);
+    display: none;
     height: 65vh;
     width: 30vw;
     background: #F9FAFB;
@@ -64,24 +64,28 @@ h1 {
     .container{
         height: 50vh;
         width: 70vw;
-        margin: 0;
+       
     }
     .button{
         padding: 5px;
     }
     .containerEdit{
+        
         width: 80vw;
+     
     }
 }
 @media (max-width: 768px){
     .container{
-        height: 60vh;
+        height: 80vh;
         width: 80vw;
-        
     }
+
 }
 @media (max-width: 414px){
-   
+    h1{
+        font-size: 1.5em;
+    }
 }
 @media (max-width: 375px){
     .container{
