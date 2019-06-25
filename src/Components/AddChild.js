@@ -98,7 +98,7 @@ render() {
     return (
         <div className={this.state.slide}>
             <div className='logInTitle'>
-                <h1>Add Data</h1>
+                <h1>Add Child</h1>
             </div>
             <form className='loginForm' onSubmit={this.addChild}>
                  <input 
